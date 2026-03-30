@@ -33,7 +33,7 @@ export default function Careers() {
       data.append('message', formData.message);
       data.append('resume', file);
 
-      const response = await fetch('http://localhost:8000/api/careers/', {
+      const response = await fetch(`${API_BASE_URL}/careers/`, {
         method: 'POST',
         body: data, // fetch automatically sets the correct multipart boundary
       });
