@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zumm.ai/sitemap.xml

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zumm - Document Intelligence Platform</title>
+    <meta name="color-scheme" content="light dark">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem("theme");
+          const theme = savedTheme ? savedTheme : "light";
+
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-white dark:bg-gray-950 text-slate-900 dark:text-white min-h-screen font-sans antialiased overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  </body>
+</html>
