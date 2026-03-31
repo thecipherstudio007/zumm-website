@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, MessageSquare, MapPin, Mail } from 'lucide-react';
 import SEO from '../components/SEO';
+import { API_BASE_URL } from '../config';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
@@ -29,7 +30,7 @@ export default function Contact() {
     }
     setError('');
     setIsSubmitting(true);
-    
+
     try {
       // Production URL should be an env variable in a real setup
       const response = await fetch(`${API_BASE_URL}/contact/`, {
@@ -60,12 +61,12 @@ export default function Contact() {
 
   return (
     <div className="pt-32 pb-24 bg-white dark:bg-gray-950 min-h-screen transition-colors duration-500 overflow-hidden relative">
-      <SEO 
-        title="Contact Us" 
+      <SEO
+        title="Contact Us"
         description="Get in touch with the Zumm team for sales inquiries, support, or custom implementation questions."
       />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-16">
-        
+
         {/* Left Col */}
         <div>
           <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight mb-6">
@@ -85,7 +86,7 @@ export default function Contact() {
                 <p className="text-slate-600 dark:text-gray-400 mt-1">Our experts are available 24/7 to help you structure your document workflows.</p>
               </div>
             </div>
-            
+
             <div className="flex gap-4 items-start">
               <div className="w-12 h-12 rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)] flex items-center justify-center shrink-0">
                 <Mail className="w-6 h-6" />
@@ -102,7 +103,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-bold text-slate-900 dark:text-white text-lg">Headquarters</h4>
-                <p className="text-slate-600 dark:text-gray-400 mt-1">100 Innovation Drive<br/>San Francisco, CA 94105</p>
+                <p className="text-slate-600 dark:text-gray-400 mt-1">100 Innovation Drive<br />San Francisco, CA 94105</p>
               </div>
             </div>
           </div>
@@ -112,32 +113,32 @@ export default function Contact() {
         <div className="bg-slate-50 dark:bg-gray-900 border border-slate-200/60 dark:border-white/10 shadow-xl p-8 rounded-3xl h-fit">
           <AnimatePresence mode="wait">
             {!isSuccess ? (
-              <motion.form 
+              <motion.form
                 key="form"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                onSubmit={handleSubmit} 
+                onSubmit={handleSubmit}
                 className="space-y-5"
               >
                 {error && <div className="p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm rounded-lg border border-red-200 dark:border-red-800">{error}</div>}
-                
+
                 <div className="grid grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 dark:text-gray-300 mb-2">Name *</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-950 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] text-slate-900 dark:text-white"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 dark:text-gray-300 mb-2">Company</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       value={formData.company}
-                      onChange={(e) => setFormData({...formData, company: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-950 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] text-slate-900 dark:text-white"
                     />
                   </div>
@@ -145,24 +146,24 @@ export default function Contact() {
 
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 dark:text-gray-300 mb-2">Email Address *</label>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-950 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] text-slate-900 dark:text-white"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 dark:text-gray-300 mb-2">Message *</label>
-                  <textarea 
+                  <textarea
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-950 border border-slate-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] text-slate-900 dark:text-white h-32 resize-none"
                   />
                 </div>
-                
-                <button 
+
+                <button
                   disabled={isSubmitting}
                   className="w-full py-4 rounded-xl font-bold bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white transition-all flex justify-center items-center h-14 mt-4"
                 >
@@ -170,7 +171,7 @@ export default function Contact() {
                 </button>
               </motion.form>
             ) : (
-              <motion.div 
+              <motion.div
                 key="success"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}

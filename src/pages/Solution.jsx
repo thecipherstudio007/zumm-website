@@ -54,61 +54,59 @@ export default function Solution() {
   const Icon = data.icon;
 
   return (
-    <div className="pt-32 pb-24 bg-white dark:bg-gray-950 min-h-screen transition-colors duration-500 overflow-hidden relative">
+    <div className="pt-32 pb-20 bg-white dark:bg-gray-950 min-h-screen transition-colors duration-500 overflow-x-hidden relative">
       <SEO 
         title={`${industryId.charAt(0).toUpperCase() + industryId.slice(1)} Industry Solutions`} 
         description={`Scale your ${industryId} workflows with Zumm AI specialized document intelligence.`}
       />
       <div className="absolute inset-x-0 top-0 h-[500px] mesh-gradient-light dark:hidden opacity-30"></div>
       
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-        
-        {industryId === 'healthcare' ? (
+      {industryId === 'healthcare' ? (
+        <div className="relative z-10">
           <HealthcareSolution />
-        ) : (
-          <>
-            <div>
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                key={industryId} // Force re-animation on route change
-              >
-                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] font-semibold text-sm mb-6 border border-[var(--primary)]/20`}>
-                  <Icon className="w-4 h-4" /> {industryId.charAt(0).toUpperCase() + industryId.slice(1)} Solutions
-                </div>
-                <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-[1.15] mb-6">
-                  {data?.title}
-                </h1>
-                <p className="text-xl text-slate-600 dark:text-gray-400 mb-10 leading-relaxed max-w-lg">
-                  Empower your professionals with domain-specific AI that understands the nuances of your industry's complex documentation.
-                </p>
-                
-                <DemoButton className="px-8 py-4 rounded-xl font-bold bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white transition-all text-lg flex items-center gap-2">
-                  Book Demo
-                </DemoButton>
-              </motion.div>
-            </div>
-
+        </div>
+      ) : (
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
             <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              key={`cards-${industryId}`}
-              className="grid sm:grid-cols-2 gap-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              key={industryId} // Force re-animation on route change
             >
-              {data?.content?.map((item, idx) => (
-                <div key={idx} className="bg-gray-50 dark:bg-gray-900 border border-slate-200/60 dark:border-white/5 p-8 rounded-3xl relative shadow-xl shadow-slate-200/40 dark:shadow-none hover:-translate-y-1 transition-transform">
-                  <div className="w-10 h-10 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)] flex items-center justify-center mb-4">
-                    <CheckCircle2 className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
-                  <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
+              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] font-semibold text-sm mb-6 border border-[var(--primary)]/20`}>
+                <Icon className="w-4 h-4" /> {industryId.charAt(0).toUpperCase() + industryId.slice(1)} Solutions
+              </div>
+              <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-[1.15] mb-6">
+                {data?.title}
+              </h1>
+              <p className="text-xl text-slate-600 dark:text-gray-400 mb-10 leading-relaxed max-w-lg">
+                Empower your professionals with domain-specific AI that understands the nuances of your industry's complex documentation.
+              </p>
+              
+              <DemoButton className="px-8 py-4 rounded-xl font-bold bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white transition-all text-lg flex items-center gap-2">
+                Book Demo
+              </DemoButton>
             </motion.div>
-          </>
-        )}
+          </div>
 
-      </div>
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            key={`cards-${industryId}`}
+            className="grid sm:grid-cols-2 gap-6"
+          >
+            {data?.content?.map((item, idx) => (
+              <div key={idx} className="bg-gray-50 dark:bg-gray-900 border border-slate-200/60 dark:border-white/5 p-8 rounded-3xl relative shadow-xl shadow-slate-200/40 dark:shadow-none hover:-translate-y-1 transition-transform">
+                <div className="w-10 h-10 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)] flex items-center justify-center mb-4">
+                  <CheckCircle2 className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
+                <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }
