@@ -25,6 +25,8 @@ export default function Footer() {
               <li><Link to="/#integrations" className="hover:text-slate-900 dark:text-white transition-colors">Integrations</Link></li>
               <li><Link to="/security" className="hover:text-slate-900 dark:text-white transition-colors">Security</Link></li>
               <li><Link to="/pricing" className="hover:text-slate-900 dark:text-white transition-colors">Pricing</Link></li>
+              <li><Link to="/how-it-works" className="hover:text-slate-900 dark:text-white transition-colors">How It Works</Link></li>
+              <li><Link to="/ai-cost-calculator" className="hover:text-slate-900 dark:text-white transition-colors">AI Cost Calculator</Link></li>
             </ul>
           </div>
 

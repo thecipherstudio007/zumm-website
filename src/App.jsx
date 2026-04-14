@@ -22,6 +22,8 @@ import Blog from './pages/Blog.jsx'
 import BlogDetail from './pages/BlogDetail.jsx'
 import Privacy from './pages/Privacy.jsx'
 import Terms from './pages/Terms.jsx'
+import HowItWorks from './pages/HowItWorks.jsx'
+import AICostCalculator from './pages/AICostCalculator.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 function App() {
@@ -53,6 +55,8 @@ function App() {
               <Route path="/blog/:id" element={<BlogDetail />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
+              <Route path="/how-it-works" element={<HowItWorks />} />
+              <Route path="/ai-cost-calculator" element={<AICostCalculator />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
