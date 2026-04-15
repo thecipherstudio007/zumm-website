@@ -47,7 +47,7 @@ const MODES = {
 
 export default function AICostCalculator() {
   const [inputType, setInputType] = useState('pages');
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState('10');
   const [qualityMode, setQualityMode] = useState('balanced');
   const [results, setResults] = useState(null);
   const [isParsing, setIsParsing] = useState(false);
@@ -56,7 +56,7 @@ export default function AICostCalculator() {
 
   const handleTypeChange = (type) => {
     setInputType(type);
-    setInputValue('');
+    setInputValue(type === 'pages' ? '10' : '1000');
     setTimeout(() => inputRef.current?.focus(), 10);
   };
 
@@ -254,21 +254,26 @@ export default function AICostCalculator() {
           cacheSavingsTemp += PASS_C_RATE * crCostSegment * (mainModelPricing.input - mainModelPricing.cacheRead);
         }
 
+        const roundedInput = Math.round(totalInput);
+        const roundedCacheWrite = Math.round(totalCacheWrite);
+        const roundedCacheRead = Math.round(totalCacheRead);
+        const roundedOutput = Math.round(totalOutput);
+
         return {
           finalCost: costSonnet + costHaiku + costOpus,
           cacheSavingsTemp,
-          totalTokens: totalInput + totalCacheWrite + totalCacheRead + totalOutput,
+          totalTokens: roundedInput + roundedCacheWrite + roundedCacheRead + roundedOutput,
           breakdown: {
-            input: totalInput,
-            cacheWrite: totalCacheWrite,
-            cacheRead: totalCacheRead,
-            output: totalOutput
+            input: roundedInput,
+            cacheWrite: roundedCacheWrite,
+            cacheRead: roundedCacheRead,
+            output: roundedOutput
           },
           calculations: {
-            input: `Map(1k) + [Inv(0.5k)+Wri(1k)+Rep(1k*0%)] × ${sections} sec`,
-            cacheWrite: `${Math.round(docTokens).toLocaleString()} doc + 5k pt`,
-            cacheRead: `${Math.round(cachedTokensBase).toLocaleString()} base × ${sections} sec × ~2 passes`,
-            output: `Sub-linear structural bounds`
+            input: `Initial setup and coordinating ${sections} parallel analysis prompts`,
+            cacheWrite: `Loading doc (${Math.round(docTokens).toLocaleString()}) + System baseline (5,000)`,
+            cacheRead: `${Math.round(cachedTokensBase).toLocaleString()} context tokens × ${sections * 2} research passes`,
+            output: `Final clinical data generation and JSON formatting`
           }
         };
       };
@@ -293,12 +298,12 @@ export default function AICostCalculator() {
       // We surface the worst run tokens safely into the UI matrix to prepare 
       // the user visually for the dense ceiling limits.
       setResults({
-        totalTokens: Math.round(worstRun.totalTokens),
+        totalTokens: worstRun.totalTokens,
         breakdown: {
-          input: Math.round(worstRun.breakdown.input),
-          cacheWrite: Math.round(worstRun.breakdown.cacheWrite),
-          cacheRead: Math.round(worstRun.breakdown.cacheRead),
-          output: Math.round(worstRun.breakdown.output)
+          input: worstRun.breakdown.input,
+          cacheWrite: worstRun.breakdown.cacheWrite,
+          cacheRead: worstRun.breakdown.cacheRead,
+          output: worstRun.breakdown.output
         },
         costRange: `$${minCostStr} – $${maxCostStr}`,
         exactCost: `$${exactCostStr}`,
@@ -568,18 +573,39 @@ export default function AICostCalculator() {
                     <div className="px-8 py-6 border-b border-slate-100 dark:border-white/5 flex items-center justify-between bg-slate-50 dark:bg-gray-900/50">
                       <h3 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
                         <Cpu className="w-5 h-5 text-slate-400" />
-                        Worst-Case Layout Breakdown
+                        Operational Pipeline Breakdown
                       </h3>
                     </div>
                     <div className="divide-y divide-slate-100 dark:divide-white/5">
                       {[
-                        { label: 'Fresh Input Tokens', value: results.breakdown.input.toLocaleString(), hint: 'Analyzed directly', calc: results.calculations?.input },
-                        { label: 'Cache-Write Tokens', value: results.breakdown.cacheWrite.toLocaleString(), hint: 'Staged into cache (higher cost)', calc: results.calculations?.cacheWrite },
-                        { label: 'Cache-Read Tokens', value: results.breakdown.cacheRead.toLocaleString(), hint: 'Pulled from cache (cost reduced)', highlight: 'text-emerald-500 dark:text-emerald-400', calc: results.calculations?.cacheRead },
-                        { label: 'Output Tokens', value: results.breakdown.output.toLocaleString(), hint: 'Sub-linear generated insights', calc: results.calculations?.output },
-                        { label: 'Distribution', value: results.distributionLabel },
-                        { label: 'Projected Accuracy', value: results.accuracy, bold: true },
-                        { label: 'Information Coverage', value: results.coverage, bold: true },
+                        { 
+                          label: 'Base System Overhead', 
+                          value: results.breakdown.input.toLocaleString(), 
+                          hint: 'Tokens used for system instructions, clinical formatting rules, and pipeline coordination.', 
+                          calc: results.calculations?.input 
+                        },
+                        { 
+                          label: 'Document Indexing', 
+                          value: results.breakdown.cacheWrite.toLocaleString(), 
+                          hint: 'The cost to load your document and system state into the AI\'s immediate working memory.', 
+                          calc: results.calculations?.cacheWrite 
+                        },
+                        { 
+                          label: 'Contextual Re-Reading', 
+                          value: results.breakdown.cacheRead.toLocaleString(), 
+                          hint: 'Our multi-pass system re-verifies your data multiple times to ensure zero hallucinations. These are cached tokens billed at a massive discount.', 
+                          highlight: 'text-emerald-500 dark:text-emerald-400', 
+                          calc: results.calculations?.cacheRead 
+                        },
+                        { 
+                          label: 'Generated Records', 
+                          value: results.breakdown.output.toLocaleString(), 
+                          hint: 'The actual volume of data written by the AI as final structured summaries and reports.', 
+                          calc: results.calculations?.output 
+                        },
+                        { label: 'Intelligence Profile', value: results.distributionLabel },
+                        { label: 'Projected Medical Accuracy', value: results.accuracy, bold: true },
+                        { label: 'Data Extraction Coverage', value: results.coverage, bold: true },
                       ].map((row, i) => (
                         <div key={i} className="flex items-center justify-between px-8 py-5 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
                           <div>
@@ -588,16 +614,16 @@ export default function AICostCalculator() {
                               {row.hint && (
                                 <>
                                   <Info className="w-3.5 h-3.5 text-slate-400" />
-                                  <div className="absolute left-0 bottom-full mb-2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all bg-slate-800 dark:bg-gray-700 text-white text-[11px] p-2.5 rounded shadow-xl z-50 pointer-events-none">
+                                  <div className="absolute left-0 bottom-full mb-2 w-64 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all bg-slate-900 dark:bg-gray-800 text-white text-[12px] p-3 rounded-xl shadow-2xl z-50 pointer-events-none border border-white/10 leading-relaxed">
                                     {row.hint}
                                   </div>
                                 </>
                               )}
                             </div>
-                            {row.calc && <span className="text-[10.5px] text-slate-400 dark:text-gray-500 font-mono mt-1 block tracking-tight">↳ {row.calc}</span>}
+                            {row.calc && <span className="text-[10.5px] text-slate-400 dark:text-gray-500 font-medium mt-1 block tracking-tight">↳ {row.calc}</span>}
                           </div>
                           <span className={`text-sm ${row.bold ? 'font-bold' : 'font-medium'} ${row.highlight ? row.highlight : 'text-slate-900 dark:text-white'}`}>
-                            {isSimulatingProfile ? <div className="h-5 w-16 bg-slate-200 dark:bg-white/10 rounded animate-pulse" /> : row.value}
+                            {isSimulatingProfile ? <div className="h-5 w-16 bg-slate-200 dark:bg-white/10 rounded animate-pulse" /> : (row.value + (typeof row.value === 'string' && row.value.includes('%') ? '' : (isNaN(row.value.replace(/,/g, '')) ? '' : ' tokens')))}
                           </span>
                         </div>
                       ))}
