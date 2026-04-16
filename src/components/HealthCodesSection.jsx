@@ -95,8 +95,8 @@ export default function HealthCodesSection() {
   const curr = contentData[industry] || contentData.healthcare;
 
   return (
-    <section className="py-24 bg-[#0B1120] relative overflow-hidden transition-colors duration-500">
-      <div className="absolute inset-0 mesh-gradient-dark opacity-20" />
+    <section className="py-24 bg-slate-50 dark:bg-[#0B1120] border-b border-slate-200 dark:border-white/5 relative overflow-hidden transition-colors duration-500">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent opacity-100 dark:opacity-20" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-16 relative z-10">
         
@@ -106,10 +106,10 @@ export default function HealthCodesSection() {
              {industry === 'insurance' ? <ShieldAlert className="w-4 h-4" /> : industry === 'legal' ? <FileText className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
              {curr.tag}
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white font-display">
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-slate-900 dark:text-white font-display">
             {curr.heading}
           </h2>
-          <p className="text-slate-400 text-lg leading-relaxed max-w-lg">
+          <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-lg">
             {curr.p}
           </p>
           <button className="flex items-center gap-2 text-[var(--primary-light)] font-bold hover:gap-3 transition-all">
@@ -118,7 +118,7 @@ export default function HealthCodesSection() {
         </div>
 
         {/* Right side: Interactive UI */}
-        <div className="flex-1 w-full bg-slate-50 dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-3xl p-6 shadow-xl relative">
+        <div className="flex-1 w-full bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-3xl p-6 shadow-2xl relative">
           
           <div className="flex gap-2 mb-6 bg-white dark:bg-gray-950 p-1 rounded-xl w-fit shadow-sm border border-slate-100 dark:border-gray-800">
              {curr.tabs.map((tab, idx) => (
@@ -137,7 +137,7 @@ export default function HealthCodesSection() {
           </div>
 
           <div className="bg-white dark:bg-gray-950 rounded-2xl border border-slate-200 dark:border-gray-800 overflow-hidden shadow-sm">
-             <div className="grid grid-cols-12 gap-4 px-6 py-4 bg-slate-100/50 dark:bg-gray-900 border-b border-slate-200 dark:border-gray-800 text-xs font-bold text-slate-400 uppercase tracking-wider">
+             <div className="grid grid-cols-12 gap-4 px-6 py-4 bg-slate-50 dark:bg-gray-900 border-b border-slate-200 dark:border-gray-800 text-xs font-bold text-slate-400 uppercase tracking-wider">
                <div className="col-span-6">{curr.col1}</div>
                <div className="col-span-3">{curr.col2}</div>
                <div className="col-span-3 text-right">{curr.col3}</div>

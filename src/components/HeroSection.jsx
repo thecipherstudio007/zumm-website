@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useIndustry } from '../context/IndustryContext';
 import DemoButton from './DemoButton';
 import { fadeIn, staggerContainer } from '../utils/animations';
-import { FileText, ArrowRight, Database, LayoutTemplate, BrainCircuit, ShieldCheck, Activity } from 'lucide-react';
+import { FileText, ArrowRight, Database, LayoutTemplate, BrainCircuit, ShieldCheck, Activity, Image as ImageIcon, FileSpreadsheet, BarChart3 } from 'lucide-react';
 
 export default function HeroSection() {
   const { industry } = useIndustry();
@@ -120,101 +120,151 @@ export default function HeroSection() {
           {/* Abstract 3D-like Document Processing Visualization */}
           <div className="absolute inset-0 flex items-center justify-center">
             
-            {/* Source Document */}
-            <motion.div 
-              animate={{ y: [0, -10, 0], rotateX: [10, 15, 10] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute left-0 w-40 h-56 bg-gray-50 dark:bg-gray-900 border border-slate-200/60 dark:border-white/10 rounded-xl p-4 shadow-2xl origin-bottom-left -skew-y-6 transform"
-            >
-              <FileText className="w-6 h-6 text-gray-500 dark:text-gray-500 mb-4" />
-              <div className="space-y-2">
-                <div className="h-1.5 bg-gray-700/50 rounded w-full"></div>
-                <div className="h-1.5 bg-gray-700/50 rounded w-5/6"></div>
-                <div className="h-1.5 bg-gray-700/50 rounded w-4/6"></div>
-              </div>
-            </motion.div>
+            {/* Incoming Data Sources Stack */}
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-10 perspective-1000">
+              {[
+                { icon: FileText, label: 'Doc / PDF', color: 'text-blue-500', bg: 'bg-blue-500/10' },
+                { icon: ImageIcon, label: 'Images', color: 'text-purple-500', bg: 'bg-purple-500/10' },
+                { icon: Database, label: 'Database', color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+                { icon: FileSpreadsheet, label: 'Sheets', color: 'text-orange-500', bg: 'bg-orange-500/10' }
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ y: [0, -5, 0], rotateX: [10, 5, 10], x: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 3 + (i % 2), delay: i * 0.4, ease: "easeInOut" }}
+                  className="flex items-center gap-3 w-40 sm:w-44 bg-white/95 dark:bg-[#0B1120]/95 backdrop-blur-xl border border-slate-200/60 dark:border-white/10 rounded-xl p-3 shadow-xl origin-bottom-left -skew-y-3 transform"
+                >
+                  <div className={`p-2 rounded-lg ${item.bg}`}>
+                    <item.icon className={`w-5 h-5 ${item.color}`} />
+                  </div>
+                  <span className="text-xs font-bold text-slate-700 dark:text-gray-300 font-mono tracking-wide">{item.label}</span>
+                </motion.div>
+              ))}
+            </div>
 
             {/* AI Processing Node */}
-            <motion.div 
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              className="absolute z-20 left-[41%] top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-20 h-20 rounded-full bg-white dark:bg-gray-950 border border-[var(--primary)]/50 shadow-[0_0_30px_var(--primary-light)]"
-            >
-              <BrainCircuit className="w-8 h-8 text-[var(--primary-light)]" />
-            </motion.div>
-
-            {/* Data Flow Lines */}
-            <svg className="absolute w-full h-full inset-0 z-10 pointer-events-none" viewBox="0 0 400 300">
-              <motion.path 
-                d="M 110 150 Q 164 150 164 150 T 265 150" 
-                fill="none" 
-                stroke="var(--primary)" 
-                strokeWidth="2"
-                strokeDasharray="4 4"
-                initial={{ strokeDashoffset: 100 }}
-                animate={{ strokeDashoffset: 0 }}
-                transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+            <div className="absolute left-[41%] top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+              {/* Energy Glow */}
+              <div className="absolute inset-[-60px] bg-[var(--primary)]/10 dark:bg-[var(--primary-dark)]/20 rounded-full blur-2xl pointer-events-none" />
+              {/* Outer pulsing rings */}
+              <motion.div 
+                animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.4, 0.1] }}
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                className="absolute inset-[-20px] rounded-full border-2 border-dashed border-[var(--primary)]/40"
               />
-            </svg>
+              <motion.div 
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                className="relative flex items-center justify-center w-20 h-20 rounded-full bg-white dark:bg-gray-950 border border-[var(--primary)]/50 shadow-[0_0_30px_var(--primary-light)]"
+              >
+                <BrainCircuit className="w-8 h-8 text-[var(--primary-light)]" />
+              </motion.div>
+            </div>
 
-            {/* Structured Output */}
-            <motion.div 
-              animate={{ y: [0, 10, 0], rotateX: [-10, -5, -10] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              className="absolute right-0 w-56 h-80 bg-gray-50/90 dark:bg-[#0B1120]/90 backdrop-blur-xl border border-[var(--primary)]/30 rounded-2xl p-4 shadow-[0_0_40px_var(--primary-dark)] origin-bottom-right skew-y-6 transform overflow-hidden"
-            >
-              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-200/60 dark:border-white/10">
-                <LayoutTemplate className="w-5 h-5 text-[var(--primary-light)]" />
-                <span className="text-xs font-mono font-bold text-[var(--primary-light)] uppercase tracking-widest">JSON Extracted</span>
-              </div>
-              
-              {industry === 'healthcare' ? (
-                <div className="space-y-3 font-mono text-[9px] text-slate-600 dark:text-gray-300 break-words whitespace-normal">
-                  <div><span className="text-pink-500 font-semibold">"patient_data"</span>: {"{"}</div>
-                  <div className="pl-4"><span className="text-pink-400 font-semibold">"name"</span>: <span className="text-emerald-400">"John D."</span>,</div>
-                  <div className="pl-4"><span className="text-pink-400 font-semibold">"vitals_alert"</span>: <span className="text-orange-400">"High BP"</span></div>
-                  <div>{"}"},</div>
-                  <div><span className="text-pink-500 font-semibold">"timeline"</span>: [</div>
-                  <div className="pl-4 flex items-center gap-2 text-slate-500"><div className="w-1.5 h-1.5 rounded-full bg-blue-500" /> <span className="text-blue-400">"09/12: Cardiology Consult"</span>,</div>
-                  <div className="pl-4 flex items-center gap-2 text-slate-500"><div className="w-1.5 h-1.5 rounded-full bg-blue-500" /> <span className="text-blue-400">"11/04: Lab Results"</span></div>
-                  <div>],</div>
-                  <div><span className="text-pink-500 font-semibold">"data_codes"</span>: [</div>
-                  <div className="pl-4"><span className="text-purple-400 bg-purple-500/10 px-1 py-0.5 rounded">"ICD-10: I10"</span>, <span className="text-purple-400 bg-purple-500/10 px-1 py-0.5 rounded">"SNOMED: 38341003"</span></div>
-                  <div>],</div>
-                  <div><span className="text-pink-500 font-semibold">"ai_summary"</span>: <span className="text-emerald-400 italic">"Patient exhibits escalating..."</span></div>
-                </div>
-              ) : industry === 'insurance' ? (
-                <div className="space-y-3 font-mono text-[9px] text-slate-600 dark:text-gray-300 break-words whitespace-normal">
-                  <div><span className="text-pink-500 font-semibold">"claim_data"</span>: {"{"}</div>
-                  <div className="pl-4"><span className="text-pink-400 font-semibold">"id"</span>: <span className="text-emerald-400">"CLM-45821"</span>,</div>
-                  <div className="pl-4"><span className="text-pink-400 font-semibold">"risk_score"</span>: <span className="text-orange-400">"Medium"</span></div>
-                  <div>{"}"},</div>
-                  <div><span className="text-pink-500 font-semibold">"timeline"</span>: [</div>
-                  <div className="pl-4 flex items-center gap-2 text-slate-500"><div className="w-1.5 h-1.5 rounded-full bg-blue-500" /> <span className="text-blue-400">"11/12: Claim Submitted"</span>,</div>
-                  <div className="pl-4 flex items-center gap-2 text-slate-500"><div className="w-1.5 h-1.5 rounded-full bg-blue-500" /> <span className="text-blue-400">"11/15: Adjuster Assigned"</span></div>
-                  <div>],</div>
-                  <div><span className="text-pink-500 font-semibold">"flags"</span>: [</div>
-                  <div className="pl-4"><span className="text-purple-400 bg-purple-500/10 px-1 py-0.5 rounded">"Risk: High Claim Value"</span>, <span className="text-purple-400 bg-purple-500/10 px-1 py-0.5 rounded">"Missing Invoice"</span></div>
-                  <div>],</div>
-                  <div><span className="text-pink-500 font-semibold">"ai_summary"</span>: <span className="text-emerald-400 italic">"Claim displays risk markers..."</span></div>
-                </div>
-              ) : (
-                <div className="space-y-3 font-mono text-[9px] text-slate-600 dark:text-gray-300 break-words whitespace-normal">
-                  <div><span className="text-pink-500 font-semibold">"case_data"</span>: {"{"}</div>
-                  <div className="pl-4"><span className="text-pink-400 font-semibold">"title"</span>: <span className="text-emerald-400">"Smith vs ABC"</span>,</div>
-                  <div className="pl-4"><span className="text-pink-400 font-semibold">"jurisdiction"</span>: <span className="text-orange-400">"SDNY"</span></div>
-                  <div>{"}"},</div>
-                  <div><span className="text-pink-500 font-semibold">"timeline"</span>: [</div>
-                  <div className="pl-4 flex items-center gap-2 text-slate-500"><div className="w-1.5 h-1.5 rounded-full bg-blue-500" /> <span className="text-blue-400">"01/04: Complaint Filed"</span>,</div>
-                  <div className="pl-4 flex items-center gap-2 text-slate-500"><div className="w-1.5 h-1.5 rounded-full bg-blue-500" /> <span className="text-blue-400">"03/01: Discovery Opened"</span></div>
-                  <div>],</div>
-                  <div><span className="text-pink-500 font-semibold">"clauses"</span>: [</div>
-                  <div className="pl-4"><span className="text-purple-400 bg-purple-500/10 px-1 py-0.5 rounded">"Milestone Breach"</span>, <span className="text-purple-400 bg-purple-500/10 px-1 py-0.5 rounded">"Liability Cap"</span></div>
-                  <div>],</div>
-                  <div><span className="text-pink-500 font-semibold">"ai_summary"</span>: <span className="text-emerald-400 italic">"Defendant failing to meet..."</span></div>
-                </div>
-              )}
-            </motion.div>
+            {/* Connecting Energy Beams */}
+            <div className="absolute left-[8rem] right-[14rem] top-1/2 -translate-y-1/2 h-1 bg-gradient-to-r from-transparent via-[var(--primary-light)] to-transparent opacity-40 blur-[1px]">
+               <motion.div 
+                 animate={{ left: ['0%', '100%'] }} 
+                 transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }} 
+                 className="absolute top-1/2 -translate-y-1/2 w-16 h-[2px] bg-white rounded-full shadow-[0_0_10px_white]" 
+               />
+               <motion.div 
+                 animate={{ left: ['0%', '100%'] }} 
+                 transition={{ duration: 1.5, delay: 0.75, repeat: Infinity, ease: 'linear' }} 
+                 className="absolute top-1/2 -translate-y-1/2 w-16 h-[2px] bg-white rounded-full shadow-[0_0_10px_white]" 
+               />
+            </div>
+
+            {/* Structured Outputs */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-56 h-80 z-10 perspective-1000">
+               
+               {/* Dashboard Output (Back / Top) */}
+               <motion.div 
+                 animate={{ y: [0, -5, 0], rotateX: [-10, -5, -10], x: [0, -5, 0] }}
+                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                 className="absolute -top-6 -right-6 w-52 bg-white/95 dark:bg-[#0B1120]/95 backdrop-blur-xl border border-blue-500/30 rounded-2xl p-4 shadow-[0_0_30px_rgba(59,130,246,0.15)] origin-bottom-right skew-y-3 transform overflow-hidden z-10"
+               >
+                 <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-200/60 dark:border-white/10">
+                   <BarChart3 className="w-4 h-4 text-blue-500" />
+                   <span className="text-[10px] font-bold text-blue-500 uppercase tracking-widest">Insights</span>
+                 </div>
+                 <div className="space-y-3">
+                   <div className="flex justify-between items-end gap-1.5 h-16 px-1 pb-1 border-b border-slate-200 dark:border-slate-800">
+                     <motion.div animate={{ height: ['40%', '70%', '40%'] }} transition={{ duration: 4, repeat: Infinity }} className="w-full bg-blue-500/20 rounded-t-sm border border-blue-500/40" />
+                     <motion.div animate={{ height: ['80%', '50%', '80%'] }} transition={{ duration: 3, repeat: Infinity }} className="w-full bg-[var(--primary)]/20 rounded-t-sm border border-[var(--primary)]/40" />
+                     <motion.div animate={{ height: ['30%', '90%', '30%'] }} transition={{ duration: 5, repeat: Infinity }} className="w-full bg-emerald-500/20 rounded-t-sm border border-emerald-500/40" />
+                     <motion.div animate={{ height: ['60%', '40%', '60%'] }} transition={{ duration: 3.5, repeat: Infinity }} className="w-full bg-purple-500/20 rounded-t-sm border border-purple-500/40" />
+                   </div>
+                   <div className="grid grid-cols-2 gap-2">
+                     <div className="h-10 rounded bg-slate-50 dark:bg-slate-800/50 flex flex-col justify-center items-center border border-slate-100 dark:border-white/5">
+                        <span className="text-[8px] text-slate-500 uppercase tracking-wider">Metrics</span>
+                        <span className="font-bold text-xs dark:text-white">1,204</span>
+                     </div>
+                     <div className="h-10 rounded bg-slate-50 dark:bg-slate-800/50 flex flex-col justify-center items-center border border-slate-100 dark:border-white/5">
+                        <span className="text-[8px] text-slate-500 uppercase tracking-wider">Accuracy</span>
+                        <span className="font-bold text-xs text-emerald-500">99.8%</span>
+                     </div>
+                   </div>
+                 </div>
+               </motion.div>
+
+               {/* JSON Output (Front / Bottom) */}
+               <motion.div 
+                 animate={{ y: [0, 8, 0], rotateX: [-10, -15, -10] }}
+                 transition={{ repeat: Infinity, duration: 5, delay: 1, ease: "easeInOut" }}
+                 className="absolute top-16 right-4 w-56 bg-gray-50/95 dark:bg-[#0B1120]/95 backdrop-blur-xl border border-[var(--primary)]/40 rounded-2xl p-4 shadow-[0_20px_40px_rgba(0,0,0,0.15)] origin-bottom-right skew-y-3 transform overflow-hidden z-20"
+               >
+                 <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-200/60 dark:border-white/10">
+                   <LayoutTemplate className="w-4 h-4 text-[var(--primary-light)]" />
+                   <span className="text-[10px] font-mono font-bold text-[var(--primary-light)] uppercase tracking-widest">JSON Extracted</span>
+                 </div>
+                 
+                 {industry === 'healthcare' ? (
+                   <div className="space-y-2 font-mono text-[8px] sm:text-[9px] text-slate-600 dark:text-gray-300 break-words whitespace-normal leading-relaxed">
+                     <div><span className="text-pink-500 font-semibold">"patient_data"</span>: {"{"}</div>
+                     <div className="pl-3"><span className="text-pink-400 font-semibold">"name"</span>: <span className="text-emerald-400">"John D."</span>,</div>
+                     <div className="pl-3"><span className="text-pink-400 font-semibold">"vitals_alert"</span>: <span className="text-orange-400">"High BP"</span></div>
+                     <div>{"}"},</div>
+                     <div><span className="text-pink-500 font-semibold">"timeline"</span>: [</div>
+                     <div className="pl-3 flex items-center gap-1.5 text-slate-500"><div className="w-1 h-1 rounded-full bg-blue-500" /> <span className="text-blue-400">"09/12: Cardiology Consult"</span>,</div>
+                     <div className="pl-3 flex items-center gap-1.5 text-slate-500"><div className="w-1 h-1 rounded-full bg-blue-500" /> <span className="text-blue-400">"11/04: Lab Results"</span></div>
+                     <div>],</div>
+                     <div><span className="text-pink-500 font-semibold">"data_codes"</span>: [</div>
+                     <div className="pl-3"><span className="text-purple-400 bg-purple-500/10 px-1 py-0.5 rounded">"ICD-10: I10"</span></div>
+                     <div>]</div>
+                   </div>
+                 ) : industry === 'insurance' ? (
+                   <div className="space-y-2 font-mono text-[8px] sm:text-[9px] text-slate-600 dark:text-gray-300 break-words whitespace-normal leading-relaxed">
+                     <div><span className="text-pink-500 font-semibold">"claim_data"</span>: {"{"}</div>
+                     <div className="pl-3"><span className="text-pink-400 font-semibold">"id"</span>: <span className="text-emerald-400">"CLM-45821"</span>,</div>
+                     <div className="pl-3"><span className="text-pink-400 font-semibold">"risk_score"</span>: <span className="text-orange-400">"Medium"</span></div>
+                     <div>{"}"},</div>
+                     <div><span className="text-pink-500 font-semibold">"timeline"</span>: [</div>
+                     <div className="pl-3 flex items-center gap-1.5 text-slate-500"><div className="w-1 h-1 rounded-full bg-blue-500" /> <span className="text-blue-400">"11/12: Claim Submitted"</span>,</div>
+                     <div className="pl-3 flex items-center gap-1.5 text-slate-500"><div className="w-1 h-1 rounded-full bg-blue-500" /> <span className="text-blue-400">"11/15: Adjuster Assigned"</span></div>
+                     <div>],</div>
+                     <div><span className="text-pink-500 font-semibold">"flags"</span>: [</div>
+                     <div className="pl-3"><span className="text-purple-400 bg-purple-500/10 px-1 py-0.5 rounded">"Risk: High Claim Value"</span></div>
+                     <div>]</div>
+                   </div>
+                 ) : (
+                   <div className="space-y-2 font-mono text-[8px] sm:text-[9px] text-slate-600 dark:text-gray-300 break-words whitespace-normal leading-relaxed">
+                     <div><span className="text-pink-500 font-semibold">"case_data"</span>: {"{"}</div>
+                     <div className="pl-3"><span className="text-pink-400 font-semibold">"title"</span>: <span className="text-emerald-400">"Smith vs ABC"</span>,</div>
+                     <div className="pl-3"><span className="text-pink-400 font-semibold">"jurisdiction"</span>: <span className="text-orange-400">"SDNY"</span></div>
+                     <div>{"}"},</div>
+                     <div><span className="text-pink-500 font-semibold">"timeline"</span>: [</div>
+                     <div className="pl-3 flex items-center gap-1.5 text-slate-500"><div className="w-1 h-1 rounded-full bg-blue-500" /> <span className="text-blue-400">"01/04: Complaint Filed"</span>,</div>
+                     <div className="pl-3 flex items-center gap-1.5 text-slate-500"><div className="w-1 h-1 rounded-full bg-blue-500" /> <span className="text-blue-400">"03/01: Discovery Opened"</span></div>
+                     <div>],</div>
+                     <div><span className="text-pink-500 font-semibold">"clauses"</span>: [</div>
+                     <div className="pl-3"><span className="text-purple-400 bg-purple-500/10 px-1 py-0.5 rounded">"Milestone Breach"</span></div>
+                     <div>]</div>
+                   </div>
+                 )}
+               </motion.div>
+
+            </div>
 
           </div>
         </motion.div>

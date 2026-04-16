@@ -560,13 +560,13 @@ export default function HowItWorks() {
     });
 
     return (
-      <div className="absolute left-[60px] top-4 bottom-4 w-1 hidden lg:block -translate-x-1/2">
+      <div className="absolute left-[50px] lg:left-[60px] top-4 bottom-4 w-1 -translate-x-1/2">
         {/* Background Track */}
         <div className="absolute inset-0 bg-slate-100 dark:bg-slate-800/50 rounded-full" />
         
         {/* Active Progress */}
         <motion.div
-          className="absolute top-0 w-full h-full bg-gradient-to-b from-[var(--primary)] to-purple-600 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+          className="absolute top-0 w-full h-full bg-gradient-to-b from-[var(--primary)] via-purple-500 to-indigo-600 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.4)]"
           style={{ 
             scaleY,
             originY: 0
@@ -610,9 +610,9 @@ export default function HowItWorks() {
           </div>
         </motion.div>
 
-        {/* Floating Label - Moved to left to avoid card overlap */}
-        <div className="absolute right-[105%] top-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none text-right">
-          <span className={`text-[10px] font-extrabold uppercase tracking-widest px-2 py-1 rounded bg-white dark:bg-gray-900 border border-slate-200 dark:border-white/10 shadow-sm ${
+        {/* Floating Label - Only visible on desktop */}
+        <div className="hidden lg:block absolute right-[115%] top-4 whitespace-nowrap opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all duration-300 pointer-events-none text-right">
+          <span className={`text-[10px] font-extrabold uppercase tracking-[0.2em] px-3 py-1.5 rounded-lg bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-slate-200 dark:border-white/10 shadow-xl ${
             isActive ? 'text-[var(--primary)]' : 'text-slate-400'
           }`}>
             {label}
@@ -928,14 +928,14 @@ export default function HowItWorks() {
       </section>
 
       {/* ═══ PIPELINE STEPS ═══ */}
-      <section className="py-16 md:py-32 px-6" ref={containerRef}>
+      <section className="py-16 md:py-32 px-4 md:px-40 lg:px-48 relative" ref={containerRef}>
         <div className="max-w-7xl mx-auto relative group">
           
           {/* Vertical Highway Line */}
           <VerticalPipelineLine scrollYProgress={scrollYProgress} />
 
           {/* START NODE */}
-          <div className="absolute left-[60px] -top-16 hidden lg:flex flex-col items-center -translate-x-1/2">
+          <div className="absolute left-[50px] lg:left-[60px] -top-16 flex flex-col items-center -translate-x-1/2">
             <motion.div 
               animate={{ boxShadow: ['0 0 0px rgba(59,130,246,0)', '0 0 20px rgba(59,130,246,0.5)', '0 0 0px rgba(59,130,246,0)'] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -946,10 +946,10 @@ export default function HowItWorks() {
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mt-3 whitespace-nowrap">Data Ingress</span>
           </div>
 
-          <div className="space-y-40">
+          <div className="space-y-20 lg:space-y-40">
 
             {/* ── STEP 1: Document Input ── */}
-            <div ref={step1Ref} className="grid lg:grid-cols-[120px_1fr] gap-0 items-start">
+            <div ref={step1Ref} className="grid grid-cols-[100px_1fr] lg:grid-cols-[120px_1fr] gap-4 lg:gap-0 items-start group">
               <PipelineStepNode {...flowSteps[0]} activeStep={activeStep} isCurrent={activeStep === 1} />
               <StepCard
                 step="01"
@@ -1035,7 +1035,7 @@ export default function HowItWorks() {
             </div>
 
             {/* ── STEP 2: Understanding / Mapping ── */}
-            <div ref={step2Ref} className="grid lg:grid-cols-[120px_1fr] gap-0 items-start">
+            <div ref={step2Ref} className="grid grid-cols-[100px_1fr] lg:grid-cols-[120px_1fr] gap-4 lg:gap-0 items-start group">
               <PipelineStepNode {...flowSteps[1]} activeStep={activeStep} isCurrent={activeStep === 2} />
               <StepCard 
                 step="02" 
@@ -1085,7 +1085,7 @@ export default function HowItWorks() {
             </div>
 
             {/* ── STEP 3: Parallel Section Processing ── */}
-            <div ref={step3Ref} className="grid lg:grid-cols-[120px_1fr] gap-0 items-start">
+            <div ref={step3Ref} className="grid grid-cols-[100px_1fr] lg:grid-cols-[120px_1fr] gap-4 lg:gap-0 items-start group">
               <PipelineStepNode {...flowSteps[2]} activeStep={activeStep} isCurrent={activeStep === 3} />
               <StepCard step="03" title="Parallel Section Processing" isActive={step3InView}
                 badge={{ text: 'Core Engine', icon: Zap, className: 'text-[var(--primary)] bg-[var(--primary)]/10 border-[var(--primary)]/20' }}
@@ -1213,8 +1213,8 @@ export default function HowItWorks() {
               </StepCard>
             </div>
 
-            {/* ── STEP 5: Validation summary ── */}
-            <div ref={step5Ref} className="grid lg:grid-cols-[120px_1fr] gap-0 items-start">
+            {/* ── STEP 5: Verification & Fixing ── */}
+            <div ref={step5Ref} className="grid grid-cols-[100px_1fr] lg:grid-cols-[120px_1fr] gap-4 lg:gap-0 items-start group">
               <PipelineStepNode {...flowSteps[4]} activeStep={activeStep} isCurrent={activeStep === 5} />
               <StepCard 
                 step="05" 
@@ -1268,8 +1268,8 @@ export default function HowItWorks() {
               </StepCard>
             </div>
 
-            {/* ── STEP 6: Combining ── */}
-            <div ref={step6Ref} className="grid lg:grid-cols-[120px_1fr] gap-0 items-start">
+            {/* ── STEP 6: Smart Structuring ── */}
+            <div ref={step6Ref} className="grid grid-cols-[100px_1fr] lg:grid-cols-[120px_1fr] gap-4 lg:gap-0 items-start group">
               <PipelineStepNode {...flowSteps[5]} activeStep={activeStep} isCurrent={activeStep === 6} />
               <StepCard 
                 step="06" 
@@ -1313,8 +1313,8 @@ export default function HowItWorks() {
               </StepCard>
             </div>
 
-            {/* ── STEP 7: Final Output ── */}
-            <div ref={step7Ref} className="grid lg:grid-cols-[120px_1fr] gap-0 items-start">
+            {/* ── STEP 7: Unified Final Output ── */}
+            <div ref={step7Ref} className="grid grid-cols-[100px_1fr] lg:grid-cols-[120px_1fr] gap-4 lg:gap-0 items-start group">
               <PipelineStepNode {...flowSteps[6]} activeStep={activeStep} isCurrent={activeStep === 7} />
               <StepCard step="07" title="Final Delivery" isActive={step7InView}
                 badge={{ text: 'Dashboard Ready', icon: Sparkles, className: 'text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/20' }}
@@ -1397,7 +1397,7 @@ export default function HowItWorks() {
             </div>
 
             {/* END NODE */}
-            <div className="absolute left-[60px] -bottom-20 hidden lg:flex flex-col items-center -translate-x-1/2">
+            <div className="absolute left-[50px] lg:left-[60px] -bottom-20 hidden lg:flex flex-col items-center -translate-x-1/2">
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-3 whitespace-nowrap">Delivery Complete</span>
               <motion.div 
                 animate={{ boxShadow: ['0 0 0px rgba(168,85,247,0)', '0 0 20px rgba(168,85,247,0.5)', '0 0 0px rgba(168,85,247,0)'] }}

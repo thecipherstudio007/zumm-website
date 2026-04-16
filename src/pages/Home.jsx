@@ -1,13 +1,12 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection.jsx'
-import OutcomeBar from '../components/OutcomeBar.jsx'
 import BeforeAfter from '../components/BeforeAfter.jsx'
+import PipelineArchitecture from '../components/PipelineArchitecture.jsx'
 import LiveProductDemo from '../components/LiveProductDemo.jsx'
 import FeaturesGrid from '../components/FeaturesGrid.jsx'
-import MultiIndustryStory from '../components/MultiIndustryStory.jsx'
+import IntegrationSection from '../components/IntegrationSection.jsx'
 import TrustSecurity from '../components/TrustSecurity.jsx'
 import Integrations from '../components/Integrations.jsx'
-import UseCaseStories from '../components/UseCaseStories.jsx'
 import Differentiation from '../components/Differentiation.jsx'
 import Testimonials from '../components/Testimonials.jsx'
 import CTA from '../components/CTA.jsx'
@@ -25,20 +24,19 @@ export default function Home() {
         description="The ultimate AI platform for extracting structured data from Healthcare, Insurance, and Legal documents. Transform unstructured PDFs into actionable insights."
       />
       <HeroSection />
-      <OutcomeBar />
       <BeforeAfter />
+      <PipelineArchitecture />
       <WorkflowVisualSection />
       <div id="features">
         <FeaturesGrid />
       </div>
+      <IntegrationSection />
       <DocumentChatSection />
       <LiveProductDemo />
       <HealthCodesSection />
       <PdfNavigationSection />
-      <MultiIndustryStory />
       <TrustSecurity />
       <Integrations />
-      <UseCaseStories />
       <Differentiation />
       <Testimonials />
       <CTA />
