@@ -15,7 +15,7 @@ export default function HeroSection() {
     } else if (industry === 'legal') {
       return "Zumm extracts key obligations, traces case timelines, maps liabilities, and creates AI-powered case summaries — helping legal teams save hours of manual review.";
     }
-    return "Zumm extracts structured patient data, generates timelines, maps medical codes, and creates AI-powered summaries - helping healthcare teams save hours of manual work.";
+    return "Zumm transforms complex files into structured, validated data enabling timelines, intelligent search, automated workflows, and seamless integration into your processes.";
   };
 
   const getHeadline = () => {
@@ -49,9 +49,9 @@ export default function HeroSection() {
         variants={fadeIn}
         className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-slate-900 dark:text-white font-display"
       >
-        Turn Complex Medical Records into <br />
+        From Unstructured Documents to <br />
         <span className="text-gradient from-[var(--primary-light)] to-[var(--primary-dark)]">
-          Clear, Actionable Insights
+          Reliable Data Systems
         </span>
       </motion.h1>
     );
