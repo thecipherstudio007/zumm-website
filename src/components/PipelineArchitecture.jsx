@@ -1,9 +1,52 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Network, Zap, ShieldCheck, GitMerge, ChevronRight, FileJson, Split, Activity, Braces, ArrowRight } from 'lucide-react';
+import { useIndustry } from '../context/IndustryContext';
 
 export default function PipelineArchitecture() {
+  const { industry } = useIndustry();
   const [activeStep, setActiveStep] = useState(0);
+
+  const getDynamicContent = () => {
+    if (industry === 'insurance') {
+      return {
+        zones: "'Damage Photos' or 'Adjuster Notes'",
+        entities: "limits, liabilities, damages",
+        located: "LOCATED: [POLICE_REP]",
+        workers: ['WORKER_DMG', 'WORKER_LIAB', 'WORKER_POLICY'],
+        schema: [
+          { k: "liability_score", bad: '"about eighty percent"', good: "80" },
+          { k: "impact_zone", bad: '"front fell off"', good: '"FRONT_BUMPER"' }
+        ],
+        blocks: ['DAMAGES', 'LIABILITY', 'COVERAGE']
+      };
+    } else if (industry === 'legal') {
+      return {
+        zones: "'Exhibits' or 'Depositions'",
+        entities: "clauses, dates, precedents",
+        located: "LOCATED: [EXHIBIT_B]",
+        workers: ['WORKER_CLAUS', 'WORKER_DATES', 'WORKER_PRECED'],
+        schema: [
+          { k: "breach_date", bad: '"early september"', good: '"2023-09-05"' },
+          { k: "clause_type", bad: '"they failed to pay"', good: '"NON_PAYMENT"' }
+        ],
+        blocks: ['CLAUSES', 'DATES', 'PRECEDENTS']
+      };
+    }
+    return {
+      zones: "'Medications' or 'Lab Results'",
+      entities: "vitals, meds, history",
+      located: "LOCATED: [LABS]",
+      workers: ['WORKER_MEDS', 'WORKER_LABS', 'WORKER_VITALS'],
+      schema: [
+        { k: "blood_pressure", bad: '"120 over 80"', good: "[120, 80]" },
+        { k: "status", bad: '"Patient seems fine"', good: '"STABLE"' }
+      ],
+      blocks: ['MEDS', 'LABS', 'VITALS']
+    };
+  };
+
+  const c = getDynamicContent();
 
   const pillars = [
     {
@@ -11,7 +54,7 @@ export default function PipelineArchitecture() {
       icon: Network,
       title: "Contextual Mapping",
       subtitle: "Cost Efficiency Engine",
-      description: "We don't feed blind pages to the LLM. The engine first crawls and semantically maps the document into distinct zones. By knowing exactly where 'Medications' or 'Lab Results' exist, we drop irrelevant pages and reduce token overhead by up to 90%.",
+      description: `We don't feed blind pages to the LLM. The engine first crawls and semantically maps the document into distinct zones. By knowing exactly where ${c.zones} exist, we drop irrelevant pages and reduce token overhead by up to 90%.`,
       accent: "text-blue-500",
       bgClass: "bg-blue-500/10",
       borderClass: "border-blue-500/20",
@@ -22,7 +65,7 @@ export default function PipelineArchitecture() {
       icon: Split,
       title: "Parallel Extraction",
       subtitle: "Speed Architecture",
-      description: "Mapped zones are dispatched to independent AI sub-agents. Instead of reading sequentially, we extract critical entities (vitals, meds, history) simultaneously. This parallelization slashes processing time to seconds.",
+      description: `Mapped zones are dispatched to independent AI sub-agents. Instead of reading sequentially, we extract critical entities (${c.entities}) simultaneously. This parallelization slashes processing time to seconds.`,
       accent: "text-indigo-500",
       bgClass: "bg-indigo-500/10",
       borderClass: "border-indigo-500/20",
@@ -179,7 +222,7 @@ export default function PipelineArchitecture() {
                   
                   {activeStep === 0 && (
                     <motion.div
-                      key="step0"
+                      key={"step0"+industry}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
@@ -216,7 +259,7 @@ export default function PipelineArchitecture() {
                             transition={{ delay: 1 }}
                             className="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[10px] px-3 py-1 rounded shadow-lg shadow-blue-500/20 whitespace-nowrap font-bold"
                           >
-                            LOCATED: [LABS]
+                            {c.located}
                           </motion.div>
                         </div>
 
@@ -232,7 +275,7 @@ export default function PipelineArchitecture() {
 
                   {activeStep === 1 && (
                     <motion.div
-                      key="step1"
+                      key={"step1"+industry}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
@@ -244,18 +287,14 @@ export default function PipelineArchitecture() {
                       </div>
                       
                       <div className="space-y-4 w-full max-w-md mx-auto">
-                        {[
-                          { name: 'WORKER_MEDS', delay: 0, width: '100%', color: 'indigo' },
-                          { name: 'WORKER_LABS', delay: 0.2, width: '90%', color: 'indigo' },
-                          { name: 'WORKER_VITALS', delay: 0.4, width: '100%', color: 'indigo' }
-                        ].map((w, i) => (
+                        {c.workers.map((name, i) => (
                           <div key={i} className="bg-slate-800/50 p-3 border border-slate-700/50 rounded-xl">
                             <div className="flex justify-between text-[10px] mb-2 font-bold">
-                              <span className="text-slate-400">{w.name} ................</span>
+                              <span className="text-slate-400">{name} ................</span>
                               <motion.span 
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                transition={{ delay: w.delay + 1 }}
+                                transition={{ delay: (i * 0.2) + 1 }}
                                 className="text-emerald-400"
                               >
                                 DONE (1.2s)
@@ -264,8 +303,8 @@ export default function PipelineArchitecture() {
                             <div className="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden">
                               <motion.div 
                                 initial={{ width: "0%" }}
-                                animate={{ width: w.width }}
-                                transition={{ duration: 1, delay: w.delay }}
+                                animate={{ width: i === 1 ? '90%' : '100%' }}
+                                transition={{ duration: 1, delay: i * 0.2 }}
                                 className="h-full bg-indigo-500 rounded-full shadow-[0_0_10px_rgba(99,102,241,0.5)]"
                               />
                             </div>
@@ -277,7 +316,7 @@ export default function PipelineArchitecture() {
 
                   {activeStep === 2 && (
                     <motion.div
-                      key="step2"
+                      key={"step2"+industry}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
@@ -291,21 +330,21 @@ export default function PipelineArchitecture() {
                       <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 shadow-inner flex flex-col gap-3 font-mono text-sm leading-loose">
                         <div className="text-slate-500">{"{"}</div>
                         <div className="pl-4">
-                           <span className="text-purple-400">"blood_pressure"</span>: <span className="text-amber-400 line-through decoration-red-500/70 block sm:inline">"120 over 80"</span>
+                           <span className="text-purple-400">"{c.schema[0].k}"</span>: <span className="text-amber-400 line-through decoration-red-500/70 block sm:inline">{c.schema[0].bad}</span>
                            <motion.span 
                              initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1 }}
                              className="text-emerald-400 ml-2"
                            >
-                             <ArrowRight className="w-3 h-3 inline mr-1 text-emerald-500" />[120, 80]
+                             <ArrowRight className="w-3 h-3 inline mr-1 text-emerald-500" />{c.schema[0].good}
                            </motion.span>,
                         </div>
                         <div className="pl-4">
-                           <span className="text-purple-400">"status"</span>: <span className="text-amber-400 line-through decoration-red-500/70 block sm:inline">"Patient seems fine"</span>
+                           <span className="text-purple-400">"{c.schema[1].k}"</span>: <span className="text-amber-400 line-through decoration-red-500/70 block sm:inline">{c.schema[1].bad}</span>
                            <motion.span 
                              initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.5 }}
                              className="text-emerald-400 ml-2"
                            >
-                             <ArrowRight className="w-3 h-3 inline mr-1 text-emerald-500" />"STABLE"
+                             <ArrowRight className="w-3 h-3 inline mr-1 text-emerald-500" />{c.schema[1].good}
                            </motion.span>
                         </div>
                         <div className="text-slate-500">{"}"}</div>
@@ -315,7 +354,7 @@ export default function PipelineArchitecture() {
 
                   {activeStep === 3 && (
                     <motion.div
-                      key="step3"
+                      key={"step3"+industry}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
@@ -326,14 +365,15 @@ export default function PipelineArchitecture() {
                         {/* Wires connecting */}
                         <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-slate-800 -z-10" />
                         
-                        {['MEDS', 'LABS', 'VITALS'].map((block, i) => (
+                        {c.blocks.map((block, i) => (
                            <motion.div 
                              key={block}
                              initial={{ y: -20, opacity: 0 }} 
                              animate={{ y: 0, opacity: 1 }} 
                              transition={{ delay: i * 0.2 }}
-                             className="bg-slate-800/80 border border-purple-500/30 text-purple-400 text-[10px] font-bold p-3 rounded-lg flex flex-col items-center gap-2"
+                             className="bg-slate-800/80 border border-purple-500/30 text-purple-400 text-[10px] font-bold p-3 rounded-lg flex flex-col items-center gap-2 z-10 relative shadow-sm"
                            >
+                              <div className="absolute inset-0 bg-slate-900 rounded-lg -z-10" />
                               <Braces className="w-4 h-4" /> {block}
                            </motion.div>
                         ))}

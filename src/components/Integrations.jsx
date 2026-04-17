@@ -1,15 +1,48 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Network, Database, CloudCog, FileCode2 } from 'lucide-react';
+import { Network, Database, CloudCog, FileCode2, BookText, Scale } from 'lucide-react';
 import { staggerContainer, fadeIn } from '../utils/animations';
+import { useIndustry } from '../context/IndustryContext';
 
 export default function Integrations() {
+  const { industry } = useIndustry();
+
+  const getPlatform = () => {
+    if (industry === 'insurance') return { name: 'Guidewire', icon: Database, color: "text-blue-500", status: "active" };
+    if (industry === 'legal') return { name: 'Clio', icon: Scale, color: "text-amber-600", status: "active" };
+    return { name: 'Epic EHR', icon: Database, color: "text-red-500", status: "active" };
+  };
+
   const platforms = [
-    { name: 'Epic EHR', icon: Database, color: "text-red-500", status: "active" },
+    getPlatform(),
     { name: 'REST APIs', icon: Network, color: "text-emerald-500", status: "active" },
     { name: 'JSON Export', icon: FileCode2, color: "text-purple-500", status: "active" },
     { name: 'Salesforce', icon: CloudCog, color: "text-slate-400", status: "coming_soon" }
   ];
+
+  const getCurlSnippet = () => {
+    if (industry === 'insurance') {
+      return `curl -X POST https://api.zumm.ai/v1/extract \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
+  -H "Content-Type: multipart/form-data" \\
+  -F "file=@insurance_claim.pdf" \\
+  -F "modules=summary,timeline,risk_factors" \\
+  -F "webhook_url=https://your-guidewire-instance.internal/webhook"`;
+    } else if (industry === 'legal') {
+      return `curl -X POST https://api.zumm.ai/v1/extract \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
+  -H "Content-Type: multipart/form-data" \\
+  -F "file=@legal_contract.pdf" \\
+  -F "modules=summary,obligations,entities" \\
+  -F "webhook_url=https://your-clio-account.internal/webhook"`;
+    }
+    return `curl -X POST https://api.zumm.ai/v1/extract \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
+  -H "Content-Type: multipart/form-data" \\
+  -F "file=@patient_record.pdf" \\
+  -F "modules=summary,timeline,icd10" \\
+  -F "webhook_url=https://your-epic-integration.internal/webhook"`;
+  };
 
   return (
     <section id="integrations" className="py-24 bg-white dark:bg-gray-950 relative overflow-hidden transition-colors duration-500">
@@ -24,7 +57,7 @@ export default function Integrations() {
             Direct Platform Integrations
           </h2>
           <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
-            Zumm is built to live where your work happens. Connect to existing legal databases, claim management systems, and EHRs via our robust API and native SDKs.
+            Zumm is built to live where your work happens. Connect to existing {industry === 'healthcare' ? 'EHR systems' : industry === 'insurance' ? 'claim management tools' : 'legal practice software'}, internal databases, and document ecosystems via our robust API and native SDKs.
           </p>
           <p className="text-xs font-semibold text-slate-400 dark:text-gray-500 pt-2">
             * More integrations coming soon
@@ -40,7 +73,7 @@ export default function Integrations() {
         >
           {platforms.map((platform, idx) => (
             <motion.div 
-              key={idx}
+              key={idx + industry}
               variants={fadeIn}
               className={`relative bg-slate-50 dark:bg-gray-950 border rounded-3xl p-8 text-center transition-all group overflow-hidden ${
                 platform.status === 'coming_soon' 
@@ -82,13 +115,8 @@ export default function Integrations() {
              <div className="w-3 h-3 rounded-full bg-green-500" />
              <span className="ml-4 text-xs font-mono text-gray-400">POST /api/v1/extract</span>
            </div>
-<pre className="text-xs sm:text-sm font-mono text-cyan-300 overflow-x-auto selection:bg-cyan-900">
-{`curl -X POST https://api.zumm.ai/v1/extract \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
-  -H "Content-Type: multipart/form-data" \\
-  -F "file=@patient_record.pdf" \\
-  -F "modules=summary,timeline,icd10" \\
-  -F "webhook_url=https://your-epic-integration.internal/webhook"`}
+<pre className="text-xs sm:text-sm font-mono text-cyan-300 overflow-x-auto selection:bg-cyan-900 leading-relaxed">
+{getCurlSnippet()}
 </pre>
         </motion.div>
 
@@ -96,3 +124,4 @@ export default function Integrations() {
     </section>
   );
 }
+

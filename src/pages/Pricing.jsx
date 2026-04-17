@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Check, 
-  Minus, 
-  Shield, 
-  Zap, 
-  Users, 
-  Rocket, 
-  Star, 
-  Building2, 
-  ArrowRight, 
+import {
+  Check,
+  Minus,
+  Shield,
+  Zap,
+  Users,
+  Rocket,
+  Star,
+  Building2,
+  ArrowRight,
   ChevronDown,
   CreditCard,
   Lock,
@@ -170,9 +170,8 @@ function ComparisonCategory({ category, defaultOpen = false }) {
                 {[feat.basic, feat.professional, feat.enterprise].map((val, i) => (
                   <div
                     key={i}
-                    className={`flex items-center justify-center py-4 border-l border-slate-100 dark:border-slate-800 ${
-                      i === 1 ? 'bg-indigo-50/30 dark:bg-indigo-950/20' : ''
-                    }`}
+                    className={`flex items-center justify-center py-4 border-l border-slate-100 dark:border-slate-800 ${i === 1 ? 'bg-indigo-50/30 dark:bg-indigo-950/20' : ''
+                      }`}
                   >
                     <FeatureValue val={val} />
                   </div>
@@ -262,7 +261,7 @@ export default function Pricing() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="rounded-3xl border border-slate-200 dark:border-slate-700/60 overflow-hidden shadow-xl shadow-slate-200/60 dark:shadow-none bg-white dark:bg-slate-900 w-full"
+            className="rounded-3xl border border-slate-200 dark:border-slate-700/60 shadow-xl shadow-slate-200/60 dark:shadow-none bg-white dark:bg-slate-900 w-full relative"
           >
             {/* ── TABLE HEADER (Plan Summaries) ─────── */}
             <div
@@ -296,32 +295,32 @@ export default function Pricing() {
               {plans.map((plan) => (
                 <div
                   key={plan.id}
-                  className={`flex flex-col p-6 md:p-7 border-r last:border-r-0 border-slate-100 dark:border-slate-800 relative ${
-                    plan.popular
+                  className={`flex flex-col p-6 md:p-7 border-r last:border-r-0 border-slate-100 dark:border-slate-800 relative ${plan.popular
                       ? 'bg-indigo-50/50 dark:bg-indigo-950/30'
                       : 'bg-white dark:bg-slate-900'
-                  }`}
+                    }`}
                 >
                   {plan.popular && (
                     <div className="absolute -top-px left-0 right-0 h-0.5 bg-[var(--primary)]" />
                   )}
                   {plan.popular && (
-                    <div className="inline-flex items-center self-start gap-1 text-[9px] font-black uppercase tracking-widest text-white bg-[var(--primary)] rounded-full px-2 py-0.5 mb-3">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-white bg-[var(--primary)] rounded-full px-3 py-1 shadow-lg shadow-[var(--primary)]/10 z-10 whitespace-nowrap">
                       Most Popular
                     </div>
                   )}
 
                   {/* Plan name */}
-                  <p className={`text-[11px] font-black uppercase tracking-widest mb-3 ${
-                    plan.popular ? 'text-[var(--primary)]' : 'text-slate-400 dark:text-slate-500'
-                  }`}>
+                  <p className={`text-[11px] font-black uppercase tracking-widest mb-3 ${plan.popular ? 'text-[var(--primary)]' : 'text-slate-400 dark:text-slate-500'
+                    }`}>
                     {plan.name}
                   </p>
 
                   {/* Price */}
-                  <div className="mb-5">
-                    {plan.originalPrice && (
+                  <div className="mb-5 min-h-[60px] flex flex-col justify-end">
+                    {plan.originalPrice ? (
                       <p className="text-xs font-bold line-through mb-1 text-red-400 dark:text-red-500 decoration-red-400">{plan.originalPrice}</p>
+                    ) : (
+                      <div className="h-5" />
                     )}
                     <div className="flex items-baseline gap-0.5">
                       <span className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">{plan.price}</span>
@@ -332,29 +331,30 @@ export default function Pricing() {
                   </div>
 
                   {/* Capabilities - hide for enterprise */}
-                  {plan.id !== 'enterprise' && (
-                    <div className="space-y-2 text-[11px] mb-5">
-                      <div className="flex items-center gap-1.5 font-semibold text-slate-600 dark:text-slate-400">
-                        <Users className="w-3 h-3 text-[var(--primary)] shrink-0" />
-                        {plan.seats}
+                  <div className="flex-1">
+                    {plan.id !== 'enterprise' ? (
+                      <div className="space-y-2 text-[11px] mb-5">
+                        <div className="flex items-center gap-1.5 font-semibold text-slate-600 dark:text-slate-400">
+                          <Users className="w-3 h-3 text-[var(--primary)] shrink-0" />
+                          {plan.seats}
+                        </div>
+                        <div className="flex items-start gap-1.5 font-semibold text-emerald-600 dark:text-emerald-500">
+                          <Zap className="w-3 h-3 shrink-0 mt-0.5" />
+                          <span className="leading-tight">{plan.credits}</span>
+                        </div>
                       </div>
-                      <div className="flex items-start gap-1.5 font-semibold text-emerald-600 dark:text-emerald-500">
-                        <Zap className="w-3 h-3 shrink-0 mt-0.5" />
-                        <span className="leading-tight">{plan.credits}</span>
-                      </div>
-                    </div>
-                  )}
-                  {plan.id === 'enterprise' && (
-                    <p className="text-[10px] text-slate-400 dark:text-slate-500 mb-5 leading-relaxed">
-                      Custom volume, integrations, and white-glove onboarding tailored to your health system.
-                    </p>
-                  )}
+                    ) : (
+                      <p className="text-[10px] text-slate-400 dark:text-slate-500 mb-5 leading-relaxed">
+                        Custom volume, integrations, and white-glove onboarding tailored to your health system.
+                      </p>
+                    )}
+                  </div>
 
                   {/* CTA */}
                   {plan.id === 'enterprise' ? (
                     <Link
                       to={plan.ctaLink}
-                      className="block text-center py-2.5 px-4 rounded-xl text-[11px] font-black uppercase tracking-wider border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900 transition-all"
+                      className="block text-center py-2.5 px-4 rounded-xl text-[11px] font-black uppercase tracking-wider border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900 transition-all font-bold"
                     >
                       {plan.cta}
                     </Link>
@@ -363,11 +363,10 @@ export default function Pricing() {
                       href={plan.ctaLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`block text-center py-2.5 px-4 rounded-xl text-[11px] font-black uppercase tracking-wider transition-all ${
-                        plan.popular
+                      className={`block text-center py-2.5 px-4 rounded-xl text-[11px] font-black uppercase tracking-wider transition-all font-bold ${plan.popular
                           ? 'bg-[var(--primary)] text-white hover:opacity-90 shadow-lg shadow-[var(--primary)]/25'
                           : 'border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-slate-900 dark:hover:border-slate-300 hover:text-slate-900 dark:hover:text-white'
-                      }`}
+                        }`}
                     >
                       {plan.cta}
                     </a>

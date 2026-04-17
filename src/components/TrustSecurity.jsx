@@ -1,14 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Lock, Users, Server, FileCheck } from 'lucide-react';
+import { Shield, Lock, Users, Server, FileCheck, ShieldCheck } from 'lucide-react';
+import { useIndustry } from '../context/IndustryContext';
 
 export default function TrustSecurity() {
+  const { industry } = useIndustry();
+
+  const getCompliancePoint = () => {
+    if (industry === 'insurance') return { icon: ShieldCheck, title: "SOC-2 Type II Certified", desc: "Enterprise-grade data protection for high-volume claim environments." };
+    if (industry === 'legal') return { icon: ShieldCheck, title: "ABA Model Rule 1.6", desc: "Architected to exceed attorney-client privilege confidentiality standards." };
+    return { icon: FileCheck, title: "HIPAA-Ready Architecture", desc: "Built adhering to strict PHI compliance standards from day one." };
+  };
+
   const points = [
     { icon: Lock, title: "AES-256 Encryption", desc: "Data rests in highly secure, AES-256 encrypted vaults." },
-    { icon: FileCheck, title: "HIPAA-Ready Architecture", desc: "Built adhering to strict PHI compliance standards from day one." },
+    getCompliancePoint(),
     { icon: Users, title: "Role-Based Access Control", desc: "Granular permissions ensure users only see documents they are authorized for." },
     { icon: Server, title: "Comprehensive Audit Logs", desc: "Immutable tracking of who viewed or processed what, and when." },
   ];
+
+  const getLogs = () => {
+    if (industry === 'insurance') {
+      return [
+        { time: "11:20:12", action: "User session authenticated via SAML SSO", badge: "SUCCESS" },
+        { time: "11:20:15", action: "Access granted to Claim File #CLM-8821Z", badge: "DATA READ" },
+        { time: "11:21:10", action: "Claim #CLM-8821Z submitted to Risk Assessment", badge: "PROCESSING" },
+        { time: "11:21:14", action: "Ephemeral buffer wiped (Zero Retention Policy)", badge: "PURGED" }
+      ];
+    } else if (industry === 'legal') {
+      return [
+        { time: "14:15:22", action: "User session authenticated via SAML SSO", badge: "SUCCESS" },
+        { time: "14:15:25", action: "Access granted to Discovery Folder #CV-4992", badge: "CONFIDENTIAL" },
+        { time: "14:16:10", action: "Case File #CV-4992 submitted to Clausal Analysis", badge: "PROCESSING" },
+        { time: "14:16:14", action: "Ephemeral buffer wiped (Zero Retention Policy)", badge: "PURGED" }
+      ];
+    }
+    return [
+      { time: "09:41:22", action: "User session authenticated via SAML SSO", badge: "SUCCESS" },
+      { time: "09:41:25", action: "Access granted to Patient Record #4021", badge: "PHI READ" },
+      { time: "09:42:10", action: "PHI Document #4021 submitted to Ephemeral AI Extraction", badge: "PROCESSING" },
+      { time: "09:42:14", action: "Ephemeral buffer wiped (Zero Retention Policy)", badge: "PURGED" }
+    ];
+  };
+
+  const logs = getLogs();
 
   return (
     <section className="py-24 bg-slate-50 dark:bg-slate-900 border-y border-slate-200 dark:border-white/10 relative overflow-hidden transition-colors duration-500">
@@ -25,13 +60,13 @@ export default function TrustSecurity() {
             Built for Highly Sensitive Data Environments
           </h2>
           <p className="text-slate-600 dark:text-gray-400 text-lg mb-10 leading-relaxed max-w-lg">
-            We understand that deploying AI in healthcare, legal, and insurance means adhering to zero-compromise security protocols. Zumm is engineered for absolute compliance.
+            We understand that deploying AI in {industry === 'healthcare' ? 'healthcare' : industry === 'insurance' ? 'insurance' : 'legal contexts'} means adhering to zero-compromise security protocols. Zumm is engineered for absolute compliance.
           </p>
           
           <div className="grid sm:grid-cols-2 gap-8">
             {points.map((pt, i) => (
                <motion.div 
-                 key={i} 
+                 key={i + industry} 
                  initial={{ opacity: 0, y: 10 }}
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
@@ -58,13 +93,8 @@ export default function TrustSecurity() {
           
           <div className="space-y-6 relative z-10">
             {/* Mocked Security Audit Log */}
-            {[
-              { time: "09:41:22", action: "User session authenticated via SAML SSO", badge: "SUCCESS" },
-              { time: "09:41:25", action: "Access granted to Patient Record #4021", badge: "PHI READ" },
-              { time: "09:42:10", action: "PHI Document #4021 submitted to Ephemeral AI Extraction", badge: "PROCESSING" },
-              { time: "09:42:14", action: "Ephemeral buffer wiped (Zero Retention Policy)", badge: "PURGED" }
-            ].map((log, i) => (
-               <div key={i} className="flex gap-4">
+            {logs.map((log, i) => (
+               <div key={i + industry} className="flex gap-4">
                  <div className="text-blue-500/50 font-mono text-xs pt-1 shrink-0">{log.time}</div>
                  <div>
                    <span className="text-white text-sm font-medium">{log.action}</span>
@@ -79,3 +109,4 @@ export default function TrustSecurity() {
     </section>
   );
 }
+

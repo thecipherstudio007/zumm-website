@@ -886,11 +886,17 @@ export default function HowItWorks() {
 
               {/* Stats row */}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
-                className="flex flex-wrap gap-5 mt-8 text-sm text-slate-500 dark:text-gray-500"
+                className="flex flex-wrap gap-3 mt-8"
               >
-                <span className="flex items-center gap-1.5"><Cpu className="w-4 h-4 text-[var(--primary)]" /> 7 pipeline steps</span>
-                <span className="flex items-center gap-1.5"><Zap className="w-4 h-4 text-amber-500" /> 90% cost reduction</span>
-                <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-emerald-500" /> Zero hallucination</span>
+                <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[11px] font-bold text-slate-700 dark:text-slate-300 shadow-sm transition-colors hover:bg-slate-200 dark:hover:bg-white/10 uppercase tracking-wider">
+                  <Cpu className="w-3.5 h-3.5 text-[var(--primary)]" /> 7 pipeline steps
+                </span>
+                <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[11px] font-bold text-slate-700 dark:text-slate-300 shadow-sm transition-colors hover:bg-slate-200 dark:hover:bg-white/10 uppercase tracking-wider">
+                  <Zap className="w-3.5 h-3.5 text-amber-500" /> 90% cost reduction
+                </span>
+                <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[11px] font-bold text-slate-700 dark:text-slate-300 shadow-sm transition-colors hover:bg-slate-200 dark:hover:bg-white/10 uppercase tracking-wider">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" /> Zero hallucination
+                </span>
               </motion.div>
             </div>
 

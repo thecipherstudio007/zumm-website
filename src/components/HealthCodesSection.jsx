@@ -14,7 +14,7 @@ export default function HealthCodesSection() {
   const contentData = {
     healthcare: {
       tag: "Data Structuring",
-      heading: "Standardized Medical Codes — Instantly Organized",
+      heading: "Standardized Medical Codes, Instantly Organized",
       p: "Zumm automatically detects and maps medical conditions into standardized coding systems without human intervention.",
       cta: "Explore structured insights",
       tabs: [{ id: 'icd10', label: 'ICD-10' }, { id: 'rxnorm', label: 'RxNorm' }, { id: 'snomed', label: 'SNOMED' }],
@@ -97,14 +97,14 @@ export default function HealthCodesSection() {
   return (
     <section className="py-24 bg-slate-50 dark:bg-[#0B1120] border-b border-slate-200 dark:border-white/5 relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent opacity-100 dark:opacity-20" />
-      
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-16 relative z-10">
-        
+
         {/* Left side: Content */}
         <div className="flex-1 space-y-6">
           <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-${curr.color}-500/10 text-${curr.color}-400 text-sm font-semibold border border-${curr.color}-500/20`}>
-             {industry === 'insurance' ? <ShieldAlert className="w-4 h-4" /> : industry === 'legal' ? <FileText className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
-             {curr.tag}
+            {industry === 'insurance' ? <ShieldAlert className="w-4 h-4" /> : industry === 'legal' ? <FileText className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
+            {curr.tag}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight text-slate-900 dark:text-white font-display">
             {curr.heading}
@@ -113,65 +113,63 @@ export default function HealthCodesSection() {
             {curr.p}
           </p>
           <button className="flex items-center gap-2 text-[var(--primary-light)] font-bold hover:gap-3 transition-all">
-             {curr.cta} <ArrowRight className="w-5 h-5" />
+            {curr.cta} <ArrowRight className="w-5 h-5" />
           </button>
         </div>
 
         {/* Right side: Interactive UI */}
         <div className="flex-1 w-full bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-3xl p-6 shadow-2xl relative">
-          
+
           <div className="flex gap-2 mb-6 bg-white dark:bg-gray-950 p-1 rounded-xl w-fit shadow-sm border border-slate-100 dark:border-gray-800">
-             {curr.tabs.map((tab, idx) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(idx)}
-                  className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
-                    activeTab === idx 
-                      ? 'bg-[var(--primary)] text-white shadow-md' 
-                      : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'
+            {curr.tabs.map((tab, idx) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(idx)}
+                className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${activeTab === idx
+                    ? 'bg-[var(--primary)] text-white shadow-md'
+                    : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'
                   }`}
-                >
-                   {tab.label}
-                </button>
-             ))}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
 
           <div className="bg-white dark:bg-gray-950 rounded-2xl border border-slate-200 dark:border-gray-800 overflow-hidden shadow-sm">
-             <div className="grid grid-cols-12 gap-4 px-6 py-4 bg-slate-50 dark:bg-gray-900 border-b border-slate-200 dark:border-gray-800 text-xs font-bold text-slate-400 uppercase tracking-wider">
-               <div className="col-span-6">{curr.col1}</div>
-               <div className="col-span-3">{curr.col2}</div>
-               <div className="col-span-3 text-right">{curr.col3}</div>
-             </div>
+            <div className="grid grid-cols-12 gap-4 px-6 py-4 bg-slate-50 dark:bg-gray-900 border-b border-slate-200 dark:border-gray-800 text-xs font-bold text-slate-400 uppercase tracking-wider">
+              <div className="col-span-6">{curr.col1}</div>
+              <div className="col-span-3">{curr.col2}</div>
+              <div className="col-span-3 text-right">{curr.col3}</div>
+            </div>
 
-             <AnimatePresence mode="wait">
-               <motion.div
-                 key={activeTab + industry}
-                 initial={{ opacity: 0, y: 10 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 exit={{ opacity: 0, y: -10 }}
-                 transition={{ duration: 0.2 }}
-                 className="divide-y divide-slate-100 dark:divide-gray-800"
-               >
-                 {curr.data[activeTab].map((row, i) => (
-                   <div key={i} className="grid grid-cols-12 gap-4 px-6 py-4 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors items-center">
-                     <div className="col-span-6 text-sm font-semibold text-slate-800 dark:text-gray-200">{row.c1}</div>
-                     <div className="col-span-3">
-                       <span className="bg-[var(--primary)]/10 text-[var(--primary-dark)] dark:text-[var(--primary-light)] font-mono text-xs px-2 py-1 rounded font-bold">
-                         {row.c2}
-                       </span>
-                     </div>
-                     <div className={`col-span-3 text-right flex items-center justify-end gap-1.5 text-xs font-semibold ${
-                        row.style === 'red' ? 'text-red-500' :
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab + industry}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="divide-y divide-slate-100 dark:divide-gray-800"
+              >
+                {curr.data[activeTab].map((row, i) => (
+                  <div key={i} className="grid grid-cols-12 gap-4 px-6 py-4 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors items-center">
+                    <div className="col-span-6 text-sm font-semibold text-slate-800 dark:text-gray-200">{row.c1}</div>
+                    <div className="col-span-3">
+                      <span className="bg-[var(--primary)]/10 text-[var(--primary-dark)] dark:text-[var(--primary-light)] font-mono text-xs px-2 py-1 rounded font-bold">
+                        {row.c2}
+                      </span>
+                    </div>
+                    <div className={`col-span-3 text-right flex items-center justify-end gap-1.5 text-xs font-semibold ${row.style === 'red' ? 'text-red-500' :
                         row.style === 'orange' ? 'text-orange-500' :
-                        row.style === 'gray' ? 'text-slate-500 dark:text-gray-400' :
-                        'text-emerald-500'
-                     }`}>
-                       {row.style === 'red' || row.style === 'orange' ? <AlertTriangle className="w-4 h-4" /> : <CheckCircle2 className="w-4 h-4" />} {row.c3}
-                     </div>
-                   </div>
-                 ))}
-               </motion.div>
-             </AnimatePresence>
+                          row.style === 'gray' ? 'text-slate-500 dark:text-gray-400' :
+                            'text-emerald-500'
+                      }`}>
+                      {row.style === 'red' || row.style === 'orange' ? <AlertTriangle className="w-4 h-4" /> : <CheckCircle2 className="w-4 h-4" />} {row.c3}
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
 
         </div>

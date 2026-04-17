@@ -5,8 +5,10 @@ import {
   Database, Clock, Workflow, MessageSquare, Activity, Search, LayoutTemplate,
   Zap, ArrowRight, BrainCircuit, ShieldCheck, AlignLeft, Send, Sparkles, Terminal, DownloadCloud, Cpu, FileStack
 } from 'lucide-react';
+import { useIndustry } from '../context/IndustryContext';
 
 export default function BeforeAfter() {
+  const { industry } = useIndustry();
   const [activeTab, setActiveTab] = useState('structured');
 
   const beforePoints = [
@@ -17,13 +19,19 @@ export default function BeforeAfter() {
     { icon: History, text: "No reliable timeline or insights" }
   ];
 
+  const getDynamicPoint = () => {
+    if (industry === 'insurance') return "Extract and identify policy limits and exclusions";
+    if (industry === 'legal') return "Extract and identify statutory clauses and precedents";
+    return "Extract and identify clinical codings (ICD, etc.)";
+  };
+
   const afterPoints = [
     { icon: CheckCircle2, text: "Up to 99%+ accurate structured data extraction" },
     { icon: Database, text: "Schema-based outputs (consistent, validated data)" },
     { icon: Clock, text: "Chronological timeline view across all documents" },
     { icon: Workflow, text: "Workflow view to automate and manage processes" },
     { icon: MessageSquare, text: "AI assistant chatbot to query and find insights instantly" },
-    { icon: Activity, text: "Extract and identify clinical codings (ICD, etc.)" },
+    { icon: Activity, text: getDynamicPoint() },
     { icon: Search, text: "Unified, searchable data across all sources" },
     { icon: LayoutTemplate, text: "Outputs ready for dashboards, APIs, and reports" }
   ];
@@ -34,6 +42,155 @@ export default function BeforeAfter() {
     { id: 'workflow', label: 'Workflow', icon: Workflow },
     { id: 'chat', label: 'AI Assistant', icon: MessageSquare }
   ];
+
+  const renderJsonMockup = () => {
+    if (industry === 'insurance') {
+      return (
+        <>
+          <span className="text-pink-400">"claim"</span>: {"{"}<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"id"</span>: <span className="text-emerald-300">"CLM-99382"</span>,<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"liability_flags"</span>: [<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"{"}<span className="text-pink-400">"code"</span>: <span className="text-emerald-300">"ISO-44"</span>, <span className="text-pink-400">"desc"</span>: <span className="text-emerald-300">"Late Reporting"</span>{"}"},<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"{"}<span className="text-pink-400">"code"</span>: <span className="text-emerald-300">"ISO-12"</span>, <span className="text-pink-400">"desc"</span>: <span className="text-emerald-300">"Uninsured Motorist"</span>{"}"}<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;],<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"extracted_by"</span>: <span className="text-blue-300">"Zumm Intel v4"</span><br/>
+          {"}"}
+        </>
+      );
+    } else if (industry === 'legal') {
+      return (
+        <>
+          <span className="text-pink-400">"case_file"</span>: {"{"}<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"id"</span>: <span className="text-emerald-300">"CV-4993-8R"</span>,<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"clause_breaches"</span>: [<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"{"}<span className="text-pink-400">"sec"</span>: <span className="text-emerald-300">"Sec 4(b)"</span>, <span className="text-pink-400">"desc"</span>: <span className="text-emerald-300">"Failure to notify"</span>{"}"},<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"{"}<span className="text-pink-400">"sec"</span>: <span className="text-emerald-300">"Sec 9(a)"</span>, <span className="text-pink-400">"desc"</span>: <span className="text-emerald-300">"Indemnification"</span>{"}"}<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;],<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"extracted_by"</span>: <span className="text-blue-300">"Zumm Intel v4"</span><br/>
+          {"}"}
+        </>
+      );
+    }
+    return (
+      <>
+        <span className="text-pink-400">"patient"</span>: {"{"}<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"id"</span>: <span className="text-emerald-300">"PT-99382"</span>,<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"diagnoses"</span>: [<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"{"}<span className="text-pink-400">"code"</span>: <span className="text-emerald-300">"I10"</span>, <span className="text-pink-400">"desc"</span>: <span className="text-emerald-300">"Hypertension"</span>{"}"},<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"{"}<span className="text-pink-400">"code"</span>: <span className="text-emerald-300">"E11.9"</span>, <span className="text-pink-400">"desc"</span>: <span className="text-emerald-300">"Type 2 DM"</span>{"}"}<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;],<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"extracted_by"</span>: <span className="text-blue-300">"Zumm Intel v4"</span><br/>
+        {"}"}
+      </>
+    );
+  };
+
+  const renderTimelineMockup = () => {
+    if (industry === 'insurance') {
+      return (
+        <>
+          <div className="relative pl-6">
+            <div className="absolute w-3.5 h-3.5 bg-[var(--primary)] rounded-full -left-[8.5px] top-1.5 shadow-[0_0_10px_var(--primary)] border-[3px] border-white dark:border-slate-900" />
+            <div className="text-[10px] font-bold text-[var(--primary)] mb-1 uppercase tracking-wider">Oct 12, 2023</div>
+            <div className="bg-white dark:bg-slate-800 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+               <div className="text-sm font-bold text-slate-800 dark:text-white">Incident: Auto Collision</div>
+               <div className="text-xs text-slate-500 mt-1.5 line-clamp-2">Policyholder impacted guardrail on I-95 south in heavy rain...</div>
+            </div>
+          </div>
+          <div className="relative pl-6">
+            <div className="absolute w-3.5 h-3.5 bg-emerald-500 rounded-full -left-[8.5px] top-1.5 shadow-[0_0_10px_rgba(16,185,129,0.5)] border-[3px] border-white dark:border-slate-900" />
+            <div className="text-[10px] font-bold text-emerald-500 mb-1 uppercase tracking-wider">Oct 15, 2023</div>
+            <div className="bg-white dark:bg-slate-800 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+               <div>
+                 <div className="text-sm font-bold text-slate-800 dark:text-white">Police Report Uploaded</div>
+                 <div className="text-xs text-slate-500 mt-1.5">No citations issued. Weather cited as factor.</div>
+               </div>
+               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-100 dark:border-emerald-500/20">
+                 <FileText className="w-5 h-5 text-emerald-500" />
+               </div>
+            </div>
+          </div>
+        </>
+      );
+    } else if (industry === 'legal') {
+      return (
+        <>
+          <div className="relative pl-6">
+            <div className="absolute w-3.5 h-3.5 bg-[var(--primary)] rounded-full -left-[8.5px] top-1.5 shadow-[0_0_10px_var(--primary)] border-[3px] border-white dark:border-slate-900" />
+            <div className="text-[10px] font-bold text-[var(--primary)] mb-1 uppercase tracking-wider">Oct 12, 2023</div>
+            <div className="bg-white dark:bg-slate-800 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+               <div className="text-sm font-bold text-slate-800 dark:text-white">Notice of Breach Sent</div>
+               <div className="text-xs text-slate-500 mt-1.5 line-clamp-2">Plaintiff counsel delivered formal notice via certified mail...</div>
+            </div>
+          </div>
+          <div className="relative pl-6">
+            <div className="absolute w-3.5 h-3.5 bg-emerald-500 rounded-full -left-[8.5px] top-1.5 shadow-[0_0_10px_rgba(16,185,129,0.5)] border-[3px] border-white dark:border-slate-900" />
+            <div className="text-[10px] font-bold text-emerald-500 mb-1 uppercase tracking-wider">Oct 15, 2023</div>
+            <div className="bg-white dark:bg-slate-800 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+               <div>
+                 <div className="text-sm font-bold text-slate-800 dark:text-white">Email Correspondence Uploaded</div>
+                 <div className="text-xs text-slate-500 mt-1.5">Defendant acknowledged receipt of notice.</div>
+               </div>
+               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-100 dark:border-emerald-500/20">
+                 <FileText className="w-5 h-5 text-emerald-500" />
+               </div>
+            </div>
+          </div>
+        </>
+      );
+    }
+    return (
+      <>
+        <div className="relative pl-6">
+          <div className="absolute w-3.5 h-3.5 bg-[var(--primary)] rounded-full -left-[8.5px] top-1.5 shadow-[0_0_10px_var(--primary)] border-[3px] border-white dark:border-slate-900" />
+          <div className="text-[10px] font-bold text-[var(--primary)] mb-1 uppercase tracking-wider">Oct 12, 2023</div>
+          <div className="bg-white dark:bg-slate-800 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+             <div className="text-sm font-bold text-slate-800 dark:text-white">Initial Cardiology Consult</div>
+             <div className="text-xs text-slate-500 mt-1.5 line-clamp-2">Patient reports shortness of breath. History of HTN noted...</div>
+          </div>
+        </div>
+        <div className="relative pl-6">
+          <div className="absolute w-3.5 h-3.5 bg-emerald-500 rounded-full -left-[8.5px] top-1.5 shadow-[0_0_10px_rgba(16,185,129,0.5)] border-[3px] border-white dark:border-slate-900" />
+          <div className="text-[10px] font-bold text-emerald-500 mb-1 uppercase tracking-wider">Oct 15, 2023</div>
+          <div className="bg-white dark:bg-slate-800 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+             <div>
+               <div className="text-sm font-bold text-slate-800 dark:text-white">Lab Results Uploaded</div>
+               <div className="text-xs text-slate-500 mt-1.5">Lipid panel indicates elevated LDL.</div>
+             </div>
+             <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-100 dark:border-emerald-500/20">
+               <FileText className="w-5 h-5 text-emerald-500" />
+             </div>
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  const getChatContent = () => {
+    if (industry === 'insurance') {
+      return {
+        q: "Was there a police report filed at the time of the accident?",
+        a: <><span className="font-bold block mb-1">Yes, it was filed on scene.</span>Review of <span className="text-[var(--primary)] font-semibold cursor-pointer hover:underline">Exhibit C (Pg 2)</span> confirms an officer responded and issued no citations. <br/><br/>A <span className="px-1 py-0.5 rounded bg-amber-500/20 text-amber-600 dark:text-amber-400 font-mono text-[10px] font-bold">Liability: Clear</span> flag was derived from this record.</>
+      };
+    } else if (industry === 'legal') {
+      return {
+        q: "Did the counterparty acknowledge the breach before litigation?",
+        a: <><span className="font-bold block mb-1">Yes.</span>Email correspondence on Sept 14th confirms their CEO stated they missed the deadline and pleaded for an extension in <span className="text-[var(--primary)] font-semibold cursor-pointer hover:underline">Discovery File B (Pg 8)</span>.</>
+      };
+    }
+    return {
+      q: "Did the patient have a history of diabetes prior to the 2023 accident?",
+      a: <><span className="font-bold block mb-1">Yes, but not documented properly.</span>Review of <span className="text-[var(--primary)] font-semibold cursor-pointer hover:underline">Exhibit B (Pg 4)</span> shows a mention of "mild unmanaged sugars" from a 2021 exam. <br/><br/>An <span className="px-1 py-0.5 rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono text-[10px] font-bold">ICD: E11.9</span> code was derived from this record.</>
+    };
+  };
+
+  const chatData = getChatContent();
+
+  const getSchemaTitle = () => {
+    if (industry === 'insurance') return 'Auto Claims Schema v1.4';
+    if (industry === 'legal') return 'Matter Mgmt Schema v3.0';
+    return 'Medical Record Schema v2.1';
+  };
 
   return (
     <>
@@ -256,28 +413,25 @@ export default function BeforeAfter() {
                     >
                       {/* JSON/Table UI mockup */}
                       <div className="flex items-center justify-between mb-4">
-                        <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Medical Record Schema v2.1</span>
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">{getSchemaTitle()}</span>
                         <div className="flex gap-2">
                            <div className="px-3 py-1 rounded bg-emerald-100 dark:bg-emerald-500/20 border border-emerald-200 dark:border-emerald-500/30 flex items-center justify-center text-[10px] font-bold text-emerald-600 dark:text-emerald-400">100% VALID</div>
                         </div>
                       </div>
                       <div className="bg-slate-900 rounded-xl p-5 font-mono text-[11px] md:text-sm text-slate-300 flex-1 overflow-hidden border border-slate-700 shadow-xl relative w-full leading-loose">
                          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[var(--primary-light)] to-transparent opacity-50" />
-                         <span className="text-pink-400">"patient"</span>: {"{"}<br/>
-                         &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"id"</span>: <span className="text-emerald-300">"PT-99382"</span>,<br/>
-                         &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"diagnoses"</span>: [<br/>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"{"}<span className="text-pink-400">"code"</span>: <span className="text-emerald-300">"I10"</span>, <span className="text-pink-400">"desc"</span>: <span className="text-emerald-300">"Hypertension"</span>{"}"},<br/>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"{"}<span className="text-pink-400">"code"</span>: <span className="text-emerald-300">"E11.9"</span>, <span className="text-pink-400">"desc"</span>: <span className="text-emerald-300">"Type 2 DM"</span>{"}"}<br/>
-                         &nbsp;&nbsp;&nbsp;&nbsp;],<br/>
-                         &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-pink-400">"extracted_by"</span>: <span className="text-blue-300">"Zumm Intel v4"</span><br/>
-                         {"}"}
+                         <AnimatePresence mode="wait">
+                            <motion.div key={industry} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                              {renderJsonMockup()}
+                            </motion.div>
+                         </AnimatePresence>
                       </div>
                     </motion.div>
                   )}
 
                   {activeTab === 'timeline' && (
                     <motion.div 
-                      key="timeline"
+                      key={"timeline" + industry}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
@@ -285,30 +439,7 @@ export default function BeforeAfter() {
                       className="absolute inset-0 p-5 md:p-6 overflow-hidden flex flex-col justify-center"
                     >
                       <div className="relative border-l-2 border-slate-300 dark:border-slate-700 ml-4 space-y-6">
-                        
-                        <div className="relative pl-6">
-                          <div className="absolute w-3.5 h-3.5 bg-[var(--primary)] rounded-full -left-[8.5px] top-1.5 shadow-[0_0_10px_var(--primary)] border-[3px] border-white dark:border-slate-900" />
-                          <div className="text-[10px] font-bold text-[var(--primary)] mb-1 uppercase tracking-wider">Oct 12, 2023</div>
-                          <div className="bg-white dark:bg-slate-800 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                             <div className="text-sm font-bold text-slate-800 dark:text-white">Initial Cardiology Consult</div>
-                             <div className="text-xs text-slate-500 mt-1.5 line-clamp-2">Patient reports shortness of breath. History of HTN noted...</div>
-                          </div>
-                        </div>
-
-                        <div className="relative pl-6">
-                          <div className="absolute w-3.5 h-3.5 bg-emerald-500 rounded-full -left-[8.5px] top-1.5 shadow-[0_0_10px_rgba(16,185,129,0.5)] border-[3px] border-white dark:border-slate-900" />
-                          <div className="text-[10px] font-bold text-emerald-500 mb-1 uppercase tracking-wider">Oct 15, 2023</div>
-                          <div className="bg-white dark:bg-slate-800 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
-                             <div>
-                               <div className="text-sm font-bold text-slate-800 dark:text-white">Lab Results Uploaded</div>
-                               <div className="text-xs text-slate-500 mt-1.5">Lipid panel indicates elevated LDL.</div>
-                             </div>
-                             <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-100 dark:border-emerald-500/20">
-                               <FileText className="w-5 h-5 text-emerald-500" />
-                             </div>
-                          </div>
-                        </div>
-
+                        {renderTimelineMockup()}
                       </div>
                     </motion.div>
                   )}
@@ -349,7 +480,7 @@ export default function BeforeAfter() {
 
                   {activeTab === 'chat' && (
                     <motion.div 
-                      key="chat"
+                      key={"chat" + industry}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
@@ -359,7 +490,7 @@ export default function BeforeAfter() {
                       <div className="flex-1 space-y-5 overflow-hidden flex flex-col justify-end mb-4">
                         <div className="flex gap-3 items-end justify-end">
                            <div className="bg-white dark:bg-slate-700 text-slate-800 dark:text-white shadow-sm border border-slate-200 dark:border-slate-600 text-xs md:text-sm px-4 py-3 rounded-2xl rounded-br-sm max-w-[85%]">
-                              Did the patient have a history of diabetes prior to the 2023 accident?
+                              {chatData.q}
                            </div>
                            <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-600 shadow-inner flex shrink-0" />
                         </div>
@@ -368,8 +499,7 @@ export default function BeforeAfter() {
                              <BrainCircuit className="w-4 h-4 text-white" />
                            </div>
                            <div className="bg-[var(--primary)]/10 dark:bg-[var(--primary)]/20 border border-[var(--primary)]/20 text-slate-800 dark:text-white text-xs md:text-sm px-4 py-3 rounded-2xl rounded-bl-sm max-w-[85%] leading-relaxed">
-                              <span className="font-bold block mb-1">Yes, but not documented properly.</span>
-                              Review of <span className="text-[var(--primary)] font-semibold cursor-pointer hover:underline">Exhibit B (Pg 4)</span> shows a mention of "mild unmanaged sugars" from a 2021 exam. <br/><br/>An <span className="px-1 py-0.5 rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono text-[10px] font-bold">ICD: E11.9</span> code was derived from this record.
+                              {chatData.a}
                            </div>
                         </div>
                       </div>

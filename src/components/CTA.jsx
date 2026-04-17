@@ -23,15 +23,15 @@ export default function CTA() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary)]/10 dark:bg-white/10 text-[var(--primary)] dark:text-white font-medium mb-4 backdrop-blur-md border border-[var(--primary)]/20 dark:border-white/10 uppercase tracking-wider text-xs">
               <Sparkles className="w-4 h-4 text-[var(--primary)] dark:text-[var(--primary-light)]" />
-              Ready to transform your workflow?
+              Deploy Enterprise Intelligence
             </div>
             
-            <h2 className="text-4xl md:text-6xl font-extrabold leading-tight text-slate-900 dark:text-white max-w-3xl mx-auto font-display">
-              Focus on care. <br aria-hidden="true" className="hidden md:block"/> Not paperwork.
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900 dark:text-white max-w-4xl mx-auto font-display">
+              Turn unstructured documents <br aria-hidden="true" className="hidden lg:block"/> into structured truth.
             </h2>
             
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-medium">
-              Make faster, better decisions while spending less time on administrative work. Upgrade to the enterprise AI workflow platform today.
+              From medical records to insurance claims, Zumm automates extraction, enforces perfect schema compliance, and integrates directly into your core systems.
             </p>
             
             <div className="flex flex-col items-center justify-center gap-4 pt-4">
@@ -42,8 +42,8 @@ export default function CTA() {
                 <a href="#demo" className="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white font-bold hover:bg-slate-200 dark:hover:bg-white/20 transition-colors text-center">
                   Try Sample
                 </a>
-                <a href="mailto:sales@zumm.ai" className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent text-slate-500 dark:text-slate-400 font-bold hover:text-slate-900 dark:hover:text-white transition-colors text-center">
-                  Contact Sales
+                <a href="/pricing" className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent text-slate-500 dark:text-slate-400 font-bold hover:text-slate-900 dark:hover:text-white transition-colors text-center">
+                  Experience the Difference
                 </a>
               </div>
               <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mt-2">
