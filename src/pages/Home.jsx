@@ -8,7 +8,6 @@ import IntegrationSection from '../components/IntegrationSection.jsx'
 import TrustSecurity from '../components/TrustSecurity.jsx'
 import Integrations from '../components/Integrations.jsx'
 import Differentiation from '../components/Differentiation.jsx'
-import Testimonials from '../components/Testimonials.jsx'
 import CTA from '../components/CTA.jsx'
 import DocumentChatSection from '../components/DocumentChatSection.jsx'
 import PdfNavigationSection from '../components/PdfNavigationSection.jsx'
@@ -38,7 +37,6 @@ export default function Home() {
       <TrustSecurity />
       <Integrations />
       <Differentiation />
-      <Testimonials />
       <CTA />
     </>
   );
