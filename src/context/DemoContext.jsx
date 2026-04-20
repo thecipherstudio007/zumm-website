@@ -7,7 +7,7 @@ export const DemoProvider = ({ children }) => {
     console.log("[DemoSystem] Demo Button Clicked");
     if (window.Calendly) {
       window.Calendly.initPopupWidget({
-        url: "https://calendly.com/18divesh18/30min"
+        url: "https://calendly.com/divesh-cipherstudio/30min"
       });
     } else {
       console.error("[DemoSystem] Calendly not loaded");
