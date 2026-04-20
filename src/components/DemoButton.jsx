@@ -21,7 +21,7 @@ export default function DemoButton({
     <button 
       {...props}
       onClick={handleClick} 
-      className={className}
+      className={`cursor-pointer ${className}`}
     >
       {children || label}
     </button>

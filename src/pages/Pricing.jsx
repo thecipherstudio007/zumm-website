@@ -32,8 +32,8 @@ const plans = [
     credits: 'First 1,000 pages free',
     description: 'For individual practitioners getting started.',
     popular: false,
-    cta: 'Get Started',
-    ctaLink: 'https://healthcare.zumm.app',
+    cta: 'Book a Call',
+    ctaLink: '',
   },
   {
     id: 'professional',
@@ -45,8 +45,8 @@ const plans = [
     credits: 'First 4,000 pages free',
     description: 'For growing teams needing full clinical AI.',
     popular: true,
-    cta: 'Get Started',
-    ctaLink: 'https://healthcare.zumm.app',
+    cta: 'Book a Call',
+    ctaLink: '',
   },
   {
     id: 'enterprise',
@@ -59,7 +59,7 @@ const plans = [
     description: 'For large health systems with custom needs.',
     popular: false,
     cta: 'Book a Call',
-    ctaLink: '/contact',
+    ctaLink: '',
   },
 ];
 
@@ -85,8 +85,8 @@ const comparisonData = [
       { name: 'Provider Visit Notes', basic: false, professional: true, enterprise: true },
       { name: 'Lab Result Tracking', basic: false, professional: true, enterprise: true },
       { name: 'Risk Factors & Social Determinants', basic: false, professional: true, enterprise: true },
-      { name: 'Smart Search (Natural Language)', basic: false, professional: true, enterprise: true },
-      { name: 'AI Chatbot for Documents', basic: false, professional: true, enterprise: true },
+      { name: 'Neural Document Search', basic: true, professional: true, enterprise: true },
+      { name: 'AI Document Assistant (Chat)', basic: false, professional: true, enterprise: true },
     ]
   },
   {
@@ -96,7 +96,7 @@ const comparisonData = [
       { name: 'Standard Clinical PDF Summary', basic: true, professional: true, enterprise: true },
       { name: 'Specialty-specific Formats', basic: false, professional: true, enterprise: true },
       { name: 'Custom Branding on Reports', basic: false, professional: true, enterprise: true },
-      { name: 'Workflow Automation Steps', basic: false, professional: 'Up to 5', enterprise: 'Unlimited' },
+      { name: 'Intelligent Patient Workflows', basic: true, professional: true, enterprise: true },
       { name: 'Bulk Export (JSON/Excel)', basic: false, professional: true, enterprise: true },
     ]
   },
@@ -351,26 +351,13 @@ export default function Pricing() {
                   </div>
 
                   {/* CTA */}
-                  {plan.id === 'enterprise' ? (
-                    <Link
-                      to={plan.ctaLink}
-                      className="block text-center py-2.5 px-4 rounded-xl text-[11px] font-black uppercase tracking-wider border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900 transition-all font-bold"
-                    >
-                      {plan.cta}
-                    </Link>
-                  ) : (
-                    <a
-                      href={plan.ctaLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`block text-center py-2.5 px-4 rounded-xl text-[11px] font-black uppercase tracking-wider transition-all font-bold ${plan.popular
-                          ? 'bg-[var(--primary)] text-white hover:opacity-90 shadow-lg shadow-[var(--primary)]/25'
-                          : 'border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-slate-900 dark:hover:border-slate-300 hover:text-slate-900 dark:hover:text-white'
-                        }`}
-                    >
-                      {plan.cta}
-                    </a>
-                  )}
+                  <DemoButton
+                    label={plan.cta}
+                    className={`block w-full text-center py-2.5 px-4 rounded-xl text-[11px] font-black uppercase tracking-wider transition-all font-bold ${plan.popular
+                        ? 'bg-[var(--primary)] text-white hover:opacity-90 shadow-lg shadow-[var(--primary)]/25'
+                        : 'border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-slate-900 dark:hover:border-slate-300 hover:text-slate-900 dark:hover:text-white'
+                      }`}
+                  />
                 </div>
               ))}
             </div>

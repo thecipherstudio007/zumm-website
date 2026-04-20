@@ -1,8 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DemoButton from './DemoButton';
+import { useIndustry } from '../context/IndustryContext';
 
 export default function Footer() {
+  const { setIndustry } = useIndustry();
+  const navigate = useNavigate();
+
+  const handleIndustrySelect = (industry) => {
+    setIndustry(industry);
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-white dark:bg-gray-950 border-t border-slate-200/60 dark:border-white/10 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -21,32 +30,32 @@ export default function Footer() {
           <div>
             <h4 className="text-slate-900 dark:text-white font-bold mb-6">Product</h4>
             <ul className="space-y-4 text-slate-600 dark:text-gray-400 text-sm">
-              <li><Link to="/#features" className="hover:text-slate-900 dark:text-white transition-colors">Features</Link></li>
-              <li><Link to="/#integrations" className="hover:text-slate-900 dark:text-white transition-colors">Integrations</Link></li>
-              <li><Link to="/security" className="hover:text-slate-900 dark:text-white transition-colors">Security</Link></li>
-              <li><Link to="/pricing" className="hover:text-slate-900 dark:text-white transition-colors">Pricing</Link></li>
-              <li><Link to="/how-it-works" className="hover:text-slate-900 dark:text-white transition-colors">How It Works</Link></li>
-              <li><Link to="/ai-cost-calculator" className="hover:text-slate-900 dark:text-white transition-colors">AI Cost Calculator</Link></li>
+              <li><Link to="/#features" className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer">Features</Link></li>
+              <li><Link to="/#integrations" className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer">Integrations</Link></li>
+              <li><Link to="/security" className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer">Security</Link></li>
+              <li><Link to="/pricing" className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer">Pricing</Link></li>
+              <li><Link to="/how-it-works" className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer">How It Works</Link></li>
+              <li><Link to="/ai-cost-calculator" className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer">AI Cost Calculator</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-slate-900 dark:text-white font-bold mb-6">Solutions</h4>
             <ul className="space-y-4 text-slate-600 dark:text-gray-400 text-sm">
-              <li><Link to="/solutions/healthcare" className="hover:text-slate-900 dark:text-white transition-colors">Healthcare</Link></li>
-              <li><Link to="/solutions/insurance" className="hover:text-slate-900 dark:text-white transition-colors">Insurance</Link></li>
-              <li><Link to="/solutions/legal" className="hover:text-slate-900 dark:text-white transition-colors">Legal</Link></li>
-              <li><Link to="/enterprise" className="hover:text-slate-900 dark:text-white transition-colors">Enterprise</Link></li>
+              <li><button onClick={() => handleIndustrySelect('healthcare')} className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer text-left">Healthcare</button></li>
+              <li><button onClick={() => handleIndustrySelect('insurance')} className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer text-left">Insurance</button></li>
+              <li><button onClick={() => handleIndustrySelect('legal')} className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer text-left">Legal</button></li>
+              <li><Link to="/enterprise" className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer">Enterprise</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-slate-900 dark:text-white font-bold mb-6">Company</h4>
             <ul className="space-y-4 text-slate-600 dark:text-gray-400 text-sm">
-              <li><Link to="/about" className="hover:text-slate-900 dark:text-white transition-colors">About</Link></li>
-              <li><Link to="/blog" className="hover:text-slate-900 dark:text-white transition-colors">Blog</Link></li>
-              <li><Link to="/careers" className="hover:text-slate-900 dark:text-white transition-colors">Careers</Link></li>
-              <li className="flex"><DemoButton label="Book a Call" className="hover:text-slate-900 dark:text-white transition-colors text-left w-full h-auto p-0 m-0 bg-transparent" /></li>
+              <li><Link to="/about" className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer">About</Link></li>
+              <li><Link to="/blog" className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer">Blog</Link></li>
+              <li><Link to="/careers" className="hover:text-slate-900 dark:text-white transition-colors cursor-pointer">Careers</Link></li>
+              <li className="flex"><DemoButton label="Book a Call" className="hover:text-slate-900 dark:text-white transition-colors text-left w-full h-auto p-0 m-0 bg-transparent cursor-pointer" /></li>
             </ul>
           </div>
 
