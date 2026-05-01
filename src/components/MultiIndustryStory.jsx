@@ -30,7 +30,7 @@ export default function MultiIndustryStory() {
       color: "text-emerald-500",
       bgLight: "bg-emerald-50 dark:bg-emerald-500/10",
       borderColor: "border-emerald-100 dark:border-emerald-500/20",
-      description: "Case summarization & evidence structuring",
+      description: "Strategic Case Intelligence",
       stats: "Find deposition contradictions instantly",
       imagePath: "v-smith-deposition.pdf"
     }

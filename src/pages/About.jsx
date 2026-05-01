@@ -13,8 +13,8 @@ export default function About() {
   return (
     <div className="pt-32 pb-24 bg-white dark:bg-gray-950 min-h-screen transition-colors duration-500 relative overflow-hidden">
       <SEO 
-        title="About Zumm - The Future of Document Intelligence" 
-        description="Learn about the team and technology behind Zumm. We are building the world's most reliable AI for complex document processing."
+        title="About Zumm - The Future of Cognitive Intelligence" 
+        description="Learn about the team and technology behind Zumm. We are building the world's most reliable AI for complex information synthesis."
       />
       <div className="max-w-4xl mx-auto px-6 md:px-12 text-center mb-24">
         <motion.h1 
@@ -22,7 +22,7 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           className="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight mb-6"
         >
-          Building the Future of <br/><span className="text-[var(--primary)]">Document Intelligence</span>
+          Building the Future of <br/><span className="text-[var(--primary)]">Cognitive Intelligence</span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ export default function About() {
           transition={{ delay: 0.1 }}
           className="text-xl text-slate-600 dark:text-gray-400 leading-relaxed"
         >
-          Zumm is designed to simplify complex data and empower professionals across healthcare, insurance, and legal industries to make faster, more accurate decisions without being bogged down by paperwork.
+          Zumm is designed to synthesize complex intelligence and empower professionals across healthcare, insurance, and legal industries to make faster, more accurate decisions without being bogged down by paperwork.
         </motion.p>
       </div>
 
@@ -43,13 +43,13 @@ export default function About() {
             <div>
               <h2 className="text-3xl font-bold text-slate-900 dark:text-white font-display mb-6">Our Mission</h2>
               <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
-                To eliminate the friction between raw documentation and actionable insight. We believe that human experts should spend their time analyzing and strategizing, not reading through hundreds of pages of PDF boilerplate.
+                To eliminate the friction between raw information and actionable intelligence. We believe that human experts should spend their time analyzing and strategizing, not reading through hundreds of pages of technical boilerplate.
               </p>
             </div>
             <div>
               <h2 className="text-3xl font-bold text-slate-900 dark:text-white font-display mb-6">Our Vision</h2>
               <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
-                A world where intelligence extraction is instantaneous and flawless. By bridging the gap between LLM reasoning and real-world enterprise constraints, we are building the definitive operating system for professional knowledge workers.
+                A world where intelligence synthesis is instantaneous and flawless. By bridging the gap between LLM reasoning and real-world enterprise constraints, we are building the definitive operating system for professional knowledge workers.
               </p>
             </div>
           </div>

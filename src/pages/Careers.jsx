@@ -65,7 +65,7 @@ export default function Careers() {
             Join Us in Building the <br /><span className="text-[var(--primary)]">Future of AI</span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-gray-400 mb-12">
-            We are a team of engineers, designers, and domain experts dedicated to automating the world's most complex documentation workflows.
+            We are a team of engineers, designers, and domain experts dedicated to synthesizing the world's most complex intelligence workflows.
           </p>
 
           <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-display mb-6 flex items-center gap-2">

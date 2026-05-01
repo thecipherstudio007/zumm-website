@@ -10,9 +10,9 @@ export default function Security() {
   const features = [
     { icon: Lock, title: "End-to-End Encryption", desc: "Data is encrypted at rest and in transit using military-grade AES-256." },
     { icon: Activity, title: "HIPAA-Ready Architecture", desc: "Designed to meet the stringent compliance needs of healthcare organizations." },
-    { icon: Fingerprint, title: "Role-Based Access Control", desc: "Granular permissions ensure users only see documents they are authorized to access." },
+    { icon: Fingerprint, title: "Role-Based Access Control", desc: "Granular permissions ensure users only see intelligence data they are authorized to access." },
     { icon: Cloud, title: "Secure Cloud Infrastructure", desc: "Hosted on certified SOC2 Type II compliant enterprise servers." },
-    { icon: FileCheck, title: "Audit Logs & Compliance", desc: "Comprehensive, immutable audit trails for every document interaction." },
+    { icon: FileCheck, title: "Audit Logs & Compliance", desc: "Comprehensive, immutable audit trails for every intelligence interaction." },
   ];
 
   return (
@@ -32,7 +32,7 @@ export default function Security() {
             Enterprise-Grade Security <br/><span className="text-gray-400 dark:text-gray-500 font-light">Built for Sensitive Data</span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Your documents are your most valuable asset. The Zumm intelligence engine operates within a fortified perimeter designed to protect your data at all times.
+            Your raw information is your most valuable asset. The Zumm intelligence engine operates within a fortified perimeter designed to protect your data at all times.
           </p>
         </motion.div>
 

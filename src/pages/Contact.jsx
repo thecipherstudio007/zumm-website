@@ -83,7 +83,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-bold text-slate-900 dark:text-white text-lg">Sales & Support</h4>
-                <p className="text-slate-600 dark:text-gray-400 mt-1">Our experts are available 24/7 to help you structure your document workflows.</p>
+                <p className="text-slate-600 dark:text-gray-400 mt-1">Our experts are available 24/7 to help you optimize your intelligence workflows.</p>
               </div>
             </div>
 

@@ -833,7 +833,7 @@ export default function HowItWorks() {
     <div className="bg-white dark:bg-gray-950 min-h-screen transition-colors duration-500 overflow-hidden">
       <SEO
         title="How It Works — AI Pipeline Explained"
-        description="See exactly how Zumm transforms raw medical documents into structured clinical data, step by step. A transparent look inside our AI processing pipeline."
+        description="See exactly how Zumm transforms raw information into cognitive intelligence, step by step. A transparent look inside our AI processing pipeline."
       />
 
       {/* ═══ HERO ═══ */}
@@ -869,7 +869,7 @@ export default function HowItWorks() {
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-lg text-slate-600 dark:text-gray-400 leading-relaxed mb-8 max-w-lg font-medium"
               >
-                No black boxes. Watch exactly how each AI instruction extracts, structures, and validates your clinical data — step by step, section by section.
+                No black boxes. Watch exactly how each AI instruction synthesizes, structures, and validates your intelligence — step by step, section by section.
               </motion.p>
 
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
@@ -1045,7 +1045,7 @@ export default function HowItWorks() {
               <PipelineStepNode {...flowSteps[1]} activeStep={activeStep} isCurrent={activeStep === 2} />
               <StepCard 
                 step="02" 
-                title={industry === 'legal' ? 'Legal Document Mapping' : industry === 'insurance' ? 'Policy & Claim Mapping' : 'Smart Document Mapping'} 
+                title={industry === 'legal' ? 'Strategic Case Mapping' : industry === 'insurance' ? 'Policy & Claim Mapping' : 'Smart Information Mapping'} 
                 isActive={step2InView}
               >
                 <div className="grid md:grid-cols-2 gap-6">
@@ -1432,7 +1432,7 @@ export default function HowItWorks() {
               Why This Approach Works
             </h2>
             <p className="text-lg text-slate-600 dark:text-gray-400 leading-relaxed">
-              Traditional AI tools read your entire document for every question. Zumm reads it once, maps it, and processes each section independently — faster, cheaper, and more accurate.
+              Traditional AI tools process raw files for every query. Zumm reads it once, maps it, and processes each section independently — faster, cheaper, and more accurate.
             </p>
           </motion.div>
 

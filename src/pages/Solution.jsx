@@ -12,7 +12,7 @@ const solutionData = {
     // Left empty here because HealthcareSolution takes over entirely
   },
   insurance: {
-    title: "Smarter Claims Processing with AI",
+    title: "Smarter Claims Intelligence with AI",
     icon: ShieldCheck,
     color: "emerald",
     content: [
@@ -23,11 +23,11 @@ const solutionData = {
     ]
   },
   legal: {
-    title: "Understand Legal Documents Instantly",
+    title: "Instant Case Intelligence",
     icon: Scale,
     color: "violet",
     content: [
-      { title: "Case Summarization", desc: "Distill massive discovery dumps into actionable legal briefs." },
+      { title: "Strategic Intelligence Synthesis", desc: "Synthesize massive discovery dumps into actionable strategic intelligence." },
       { title: "Evidence Extraction", desc: "Pinpoint specific clauses, entities, and obligations buried in contracts." },
       { title: "Timeline Reconstruction", desc: "Map chronologies of events and communications automatically." },
       { title: "Contract Analysis", desc: "Compare vendor agreements against standard templates for deviations." }
@@ -57,7 +57,7 @@ export default function Solution() {
     <div className="pt-32 pb-20 bg-white dark:bg-gray-950 min-h-screen transition-colors duration-500 overflow-x-hidden relative">
       <SEO 
         title={`${industryId.charAt(0).toUpperCase() + industryId.slice(1)} Industry Solutions`} 
-        description={`Scale your ${industryId} workflows with Zumm AI specialized document intelligence.`}
+        description={`Scale your ${industryId} workflows with Zumm AI specialized cognitive intelligence.`}
       />
       <div className="absolute inset-x-0 top-0 h-[500px] mesh-gradient-light dark:hidden opacity-30"></div>
       

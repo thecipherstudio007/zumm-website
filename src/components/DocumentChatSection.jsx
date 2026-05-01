@@ -60,9 +60,9 @@ export default function DocumentChatSection() {
   const queries = queriesData[industry] || queriesData.healthcare;
 
   const descriptions = {
-    healthcare: "Use natural language to instantly find insights from complex medical records. Stop reading hundreds of pages and simply ask the Zumm Engine to summarize, find risks, or list medications.",
+    healthcare: "Use natural language to instantly find insights from complex medical records. Stop reading hundreds of pages and simply ask the Zumm Engine to analyze, find risks, or list medications.",
     insurance: "Use natural language to instantly find insights from complex claim files. Stop manually reviewing policy coverage and simply ask the Zumm Engine to check amounts, risks, or missing documents.",
-    legal: "Use natural language to instantly find insights from complex case files. Stop reading hundreds of pages of discovery and simply ask the Zumm Engine to summarize arguments or find clauses."
+    legal: "Use natural language to instantly find insights from complex case files. Stop reading hundreds of pages of discovery and simply ask the Zumm Engine to extract key insights or find clauses."
   };
 
   return (
@@ -155,7 +155,7 @@ export default function DocumentChatSection() {
              Conversational AI
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight text-slate-900 dark:text-white font-display">
-            Ask Anything About the {industry === 'healthcare' ? 'Document' : industry === 'insurance' ? 'Claim Data' : 'Case File'}
+            Ask Anything About the {industry === 'healthcare' ? 'Intelligence Profile' : industry === 'insurance' ? 'Claim Data' : 'Case Intelligence'}
           </h2>
           <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed">
             {descriptions[industry] || descriptions.healthcare}

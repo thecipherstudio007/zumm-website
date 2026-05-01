@@ -9,7 +9,7 @@ export default function UseCases() {
 
   const useCasesContent = {
     healthcare: [
-      { title: "Patient Summaries", desc: "Synthesize years of medical history into a single, structured 1-page overview.", icon: FileText },
+      { title: "Patient Intelligence", desc: "Synthesize years of medical history into a single, structured intelligence briefing.", icon: FileText },
       { title: "Clinical Decision Support", desc: "Extract vital signs and lab anomalies to highlight critical risks instantly.", icon: HeartPulse },
       { title: "EMR Integration", desc: "Push extracted ICD-10 codes and data directly to Epic or Cerner.", icon: Stethoscope }
     ],
@@ -19,7 +19,7 @@ export default function UseCases() {
       { title: "Fraud Signals", desc: "Cross-reference multiple documents to detect timeline inconsistencies.", icon: Eye }
     ],
     legal: [
-      { title: "Case Summarization", desc: "Distill hundreds of pages of trial briefs into chronological, searchable summaries.", icon: Gavel },
+      { title: "Strategic Case Intelligence", desc: "Synthesize complex trial briefs into chronological, searchable intelligence.", icon: Gavel },
       { title: "Evidence Extraction", desc: "Automatically surface key entities, dates, and contradiction points.", icon: Eye },
       { title: "Timeline Building", desc: "Construct a verified order of events directly from deposition transcripts.", icon: Scale }
     ]

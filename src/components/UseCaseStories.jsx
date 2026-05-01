@@ -22,7 +22,7 @@ export default function UseCaseStories() {
       role: "Paralegal",
       icon: FileSearch,
       bg: "bg-gradient-to-br from-emerald-500/10 to-transparent",
-      quote: "Summarizing a 400-page deposition used to take me a full day. Zumm generates an executive brief and pulls all key citations in minutes.",
+      quote: "Analyzing a 400-page deposition used to take me a full day. Zumm generates an executive brief and pulls all key citations in minutes.",
       outcome: "Eliminated weekend document review work."
     }
   ];

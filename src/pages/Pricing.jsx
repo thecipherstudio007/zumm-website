@@ -68,7 +68,7 @@ const comparisonData = [
     title: 'Core AI Processing',
     icon: Sparkles,
     features: [
-      { name: 'Document summarization', basic: true, professional: true, enterprise: true },
+      { name: 'Intelligent Synthesis', basic: true, professional: true, enterprise: true },
       { name: 'Section-level extraction', basic: true, professional: true, enterprise: true },
       { name: 'Multi-pass AI pipeline', basic: false, professional: true, enterprise: true },
       { name: 'Auto-validation & correction', basic: true, professional: true, enterprise: true },
@@ -93,7 +93,7 @@ const comparisonData = [
     title: 'Reports & Workflows',
     icon: Zap,
     features: [
-      { name: 'Standard Clinical PDF Summary', basic: true, professional: true, enterprise: true },
+      { name: 'Standard Clinical Intelligence Report', basic: true, professional: true, enterprise: true },
       { name: 'Specialty-specific Formats', basic: false, professional: true, enterprise: true },
       { name: 'Custom Branding on Reports', basic: false, professional: true, enterprise: true },
       { name: 'Intelligent Patient Workflows', basic: true, professional: true, enterprise: true },
@@ -226,7 +226,7 @@ export default function Pricing() {
     <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
       <SEO
         title="Pricing — Plans & Features | Zumm"
-        description="Simple, transparent pricing for Zumm's AI-powered clinical document intelligence."
+        description="Simple, transparent pricing for Zumm's AI-powered clinical cognitive intelligence."
       />
 
       {/* ── HERO ───────────────────────────────────── */}
@@ -432,7 +432,7 @@ export default function Pricing() {
               Ready to get started?
             </h2>
             <p className="text-slate-400 dark:text-slate-600 text-base mb-8 max-w-md mx-auto relative">
-              See Zumm process your own documents live — before you commit to a plan.
+              See Zumm process your own information live — before you commit to a plan.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative">
               <DemoButton

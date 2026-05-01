@@ -9,7 +9,7 @@ export default function Enterprise() {
   const { industry } = useIndustry();
 
   const features = [
-    { icon: Layers, title: "Custom Workflows", desc: "Tailor the AI extraction engine precisely to your organization's unique document types." },
+    { icon: Layers, title: "Custom Workflows", desc: "Tailor the AI synthesis engine precisely to your organization's unique information types." },
     { icon: Users, title: "Multi-Team Support", desc: "Unified billing and segregated workspaces for massive, multi-national organizations." },
     { icon: Zap, title: "API Integrations", desc: "Inject Zumm intelligence directly into your existing ERP or proprietary software." },
     { icon: Building2, title: "Dedicated Onboarding", desc: "A dedicated solutions architect ensures your deployment is flawless from day one." },
@@ -18,7 +18,7 @@ export default function Enterprise() {
   return (
     <div className="pt-32 pb-24 bg-slate-50 dark:bg-gray-950 min-h-screen transition-colors duration-500 overflow-hidden relative">
       <SEO 
-        title="AI Document Intelligence for Scale" 
+        title="Cognitive Intelligence at Enterprise Scale" 
         description="Zumm Enterprise offers custom integrations, dedicated support, and scalable AI infrastructure for large organizations."
       />
       <div className="absolute inset-x-0 top-0 h-[500px] mesh-gradient-light dark:hidden opacity-40"></div>

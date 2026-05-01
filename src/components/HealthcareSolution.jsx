@@ -4,7 +4,7 @@ import { Activity, FileText, Clock, Database, CheckCircle2, ArrowRight, UploadCl
 import DemoButton from './DemoButton';
 
 const pillars = [
-  { icon: FileText, title: "AI Report Summarization", desc: "Convert 100+ page long medical reports into concise insights, highlighting critical diagnoses, risks, and outcomes." },
+  { icon: FileText, title: "Clinical Intelligence Engine", desc: "Synthesize complex medical histories into actionable clinical intelligence, highlighting critical risks and outcomes." },
   { icon: Database, title: "Structured Patient Data", desc: "Instantly parse unstructured narratives into standardized JSON, extracting codes (ICD-10, SNOMED) and vitals." },
   { icon: Clock, title: "Patient Timeline View", desc: "Automatically reconstruct chronological patient journeys from scattered historical records and follow-ups." },
   { icon: Stethoscope, title: "Administrative Work Reduction", desc: "Automate repetitive chart reviews and documentation, saving your teams 60–80% of manual effort." },
@@ -39,7 +39,7 @@ export default function HealthcareSolution() {
               Reduce Administrative Burden. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500">Focus on Patient Care.</span>
             </h1>
             <p className="text-xl text-slate-600 dark:text-gray-400 mb-10 leading-relaxed">
-              Zumm transforms complex patient records into structured insights, timelines, and clinical summaries — helping healthcare teams save hours on documentation and decision-making.
+              Zumm transforms complex patient records into structured insights, timelines, and clinical intelligence — helping healthcare teams save hours on documentation and decision-making.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -156,7 +156,7 @@ export default function HealthcareSolution() {
                         <div className="flex items-center justify-between mb-4 pb-4 border-b border-slate-200 dark:border-gray-800">
                           <div className="flex items-center gap-2">
                             <FileText className="w-4 h-4 text-emerald-500" />
-                            <span className="font-semibold text-sm text-slate-900 dark:text-white">Unstructured Note Parse</span>
+                            <span className="font-semibold text-sm text-slate-900 dark:text-white">Intelligent Note Analysis</span>
                           </div>
                           <span className="text-xs font-mono bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 px-2 py-1 rounded">confidence: 99.8%</span>
                         </div>

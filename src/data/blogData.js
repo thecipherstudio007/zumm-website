@@ -3,14 +3,14 @@ export const blogPosts = [
   {
     id: "ai-clinical-decision-support",
     title: "AI-Powered Clinical Decision Support: The Next Evolution in Healthcare",
-    desc: "Discover how AI-driven insights are reshaping the accuracy and speed of clinical decisions through document intelligence.",
+    desc: "Discover how AI-driven insights are reshaping the accuracy and speed of clinical decisions through cognitive intelligence.",
     date: "Mar 20, 2026",
     category: "Healthcare",
     image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
     readTime: "9 min read",
     isNew: true,
     content: `## Introduction
-The landscape of modern medicine is evolving at an unprecedented pace. Clinicians today are tasked with managing more data than ever before, yet much of this information remains fragmented across disparate systems and unstructured documents. **AI-driven clinical decision support** (CDS) is no longer a futuristic concept—it is a critical necessity for improving patient outcomes and operational efficiency. By leveraging advanced document intelligence, healthcare providers can now transform raw data into actionable insights at the point of care.
+The landscape of modern medicine is evolving at an unprecedented pace. Clinicians today are tasked with managing more data than ever before, yet much of this information remains fragmented across disparate systems and unstructured information. **AI-driven clinical decision support** (CDS) is no longer a futuristic concept—it is a critical necessity for improving patient outcomes and operational efficiency. By leveraging advanced cognitive intelligence, healthcare providers can now transform raw data into actionable insights at the point of care.
 
 ## The Problem: Data Fragmentation and Cognitive Overload
 Medical professionals are currently facing a dual crisis: a massive influx of data and a corresponding increase in cognitive load. On average, a hospital patient generates thousands of data points during a single stay, ranging from lab results and imaging reports to specialist consult notes and historical records. 
@@ -24,17 +24,17 @@ Our platform uses proprietary NLP models trained on medical taxonomies to ingest
 
 ## Key Features & Benefits
 *   **Unified Clinical Timelines**: Zumm automatically reconstructs a patient's multi-year history into a single, chronological flow, highlighting diagnostic shifts and treatment responses.
-*   **Real-time Risk Summarization**: The AI identifies and flags high-risk diagnostic indicators, such as sudden shifts in creatinine levels or recurring abnormal scans, across multiple years of records.
+*   **Real-time Risk Intelligence Synthesis**: The AI identifies and flags high-risk diagnostic indicators, such as sudden shifts in creatinine levels or recurring abnormal scans, across multiple years of records.
 *   **Automated Medical Coding**: By mapping findings directly to **SNOMED-CT** and **ICD-10** standards, Zumm ensures that data is always interoperable and ready for specialized analysis.
 *   **HIPAA-Compliant Intelligence**: Designed with the highest security standards, Zumm ensures that patient privacy is never compromised while delivering powerful AI insights.
 
 ## Real-world Use Cases
-Consider a cardiologist reviewing a complex referral. Instead of reading through 50 separate lab reports from three different providers, the cardiologist uses Zumm to view a summarized **cardiac risk profile**. Zumm highlights a specific lab result from two years ago that indicates a rare drug-to-drug interaction with a new prescription. What would have taken an hour of manual review is accomplished in seconds, potentially preventing a life-threatening adverse event.
+Consider a cardiologist reviewing a complex referral. Instead of reading through 50 separate lab reports from three different providers, the cardiologist uses Zumm to view a synthesized **cardiac risk profile**. Zumm highlights a specific lab result from two years ago that indicates a rare drug-to-drug interaction with a new prescription. What would have taken an hour of manual review is accomplished in seconds, potentially preventing a life-threatening adverse event.
 
 In another instance, emergency department teams utilize Zumm to instantly \"catch up\" on an unconscious patient's history. By scanning the patient's entire medical record in seconds, Zumm identifies a critical allergy noted only once in a decade-old surgical report, ensuring immediate and safe intervention.
 
 ## Conclusion
-The next evolution in healthcare is not just about gathering more data; it's about making that data work for clinicians. AI-powered clinical decision support through Zumm's document intelligence platform bridges the gap between fragmented records and superior patient care. As we move toward a more data-driven future, the ability to rapidly interpret and act upon structured medical insights will be the defining factor in hospital efficiency and diagnostic accuracy.`
+The next evolution in healthcare is not just about gathering more data; it's about making that data work for clinicians. AI-powered clinical decision support through Zumm's cognitive intelligence platform bridges the gap between fragmented records and superior patient care. As we move toward a more data-driven future, the ability to rapidly interpret and act upon structured medical insights will be the defining factor in hospital efficiency and diagnostic accuracy.`
   },
   {
     id: "structured-patient-data-efficiency",
@@ -73,7 +73,7 @@ A large metropolitan hospital system implemented Zumm to handle their incoming s
 Another use case involves clinical research teams. By using Zumm to structure decades of historical patient archives, researchers were able to identify cohorts for a new clinical trial in days rather than months, accelerating the path to breakthrough treatments.
 
 ## Conclusion
-Structured patient data is the lifeblood of the modern healthcare ecosystem. By transforming unstructured documents into clean, normalized datasets, Zumm enables hospitals to operate with unprecedented speed and accuracy. The shift from manual transcription to AI-driven document intelligence is not just an upgrade—it's a core requirement for any healthcare organization seeking to scale in the 21st century.`
+Structured patient data is the lifeblood of the modern healthcare ecosystem. By transforming unstructured information into clean, normalized datasets, Zumm enables hospitals to operate with unprecedented speed and accuracy. The shift from manual transcription to AI-driven cognitive intelligence is not just an upgrade—it's a core requirement for any healthcare organization seeking to scale in the 21st century.`
   },
   {
     id: "from-lab-reports-to-insights",
@@ -135,12 +135,12 @@ Current challenges in documentation include:
 *   **Diagnostic Lag**: The time taken to manually review historical charts before a consultation delays care.
 
 ## The Solution: Zumm's Automated Chart Review
-Zumm eliminates the need for manual chart \"mining\" by providing an intelligent summarization layer. Our AI acts as a pre-consultation assistant, scanning every previous note, lab, and imaging report to provide a concise clinical overview.
+Zumm eliminates the need for manual chart \"mining\" by providing an intelligent intelligence synthesis layer. Our AI acts as a pre-consultation assistant, scanning every previous note, lab, and imaging report to provide a concise clinical overview.
 
 By delivering a **unified patient timeline**, Zumm ensures that clinicians have the full context before they even enter the exam room.
 
 ## Key Features & Benefits
-*   **Automated Clinical Summarization**: Zumm extracts the narrative of a patient's care, highlighting changes in diagnosis and treatment plans over time.
+*   **Automated Clinical Intelligence Synthesis**: Zumm extracts the narrative of a patient's care, highlighting changes in diagnosis and treatment plans over time.
 *   **Seamless External Record Ingestion**: Whether it's an old PDF from a different system or a recent lab fax, Zumm structures the data into the primary record.
 *   **Interactive Chat Queries**: Use natural language to ask your documentation things like, \"What was the patient's last known HbA1c and who ordered the test?\"
 *   **Improved Compliance**: Standardized, AI-assisted documentation leads to better audit trails and more accurate billing.
@@ -151,7 +151,7 @@ A primary care network used Zumm to assist with annual wellness visits. Previous
 In a surgical setting, Zumm's ability to cross-reference multiple pre-op clearances from different specialists ensured that the surgical team had a 100% complete picture of patient risk, reducing day-of-surgery cancellations due to missing information.
 
 ## Conclusion
-The future of medical documentation is not just about recording what happened; it's about making that record truly useful. By automating the extraction and summarization of clinical data, Zumm is restoring the human element to medicine, allowing doctors to focus on the patient instead of the screen.`
+The future of medical documentation is not just about recording what happened; it's about making that record truly useful. By automating the extraction and intelligence synthesis of clinical data, Zumm is restoring the human element to medicine, allowing doctors to focus on the patient instead of the screen.`
   },
   {
     id: "preventing-diagnostic-errors",
@@ -163,7 +163,7 @@ The future of medical documentation is not just about recording what happened; i
     readTime: "10 min read",
     isNew: true,
     content: `## Introduction
-Diagnostic error is a significant public health concern. Research suggests that 1 in 10 diagnoses are incorrect, delayed, or missed, often leading to preventable patient harm. A major factor in these errors is \"information fragmentation.\" Critical facts are often present in the medical record but buried so deep that they are overlooked. **AI-driven document intelligence** is now providing the clinical safety net needed to catch these hidden diagnostic clues.
+Diagnostic error is a significant public health concern. Research suggests that 1 in 10 diagnoses are incorrect, delayed, or missed, often leading to preventable patient harm. A major factor in these errors is \"information fragmentation.\" Critical facts are often present in the medical record but buried so deep that they are overlooked. **AI-driven cognitive intelligence** is now providing the clinical safety net needed to catch these hidden diagnostic clues.
 
 ## The Problem: The Hidden Needle in the Data Haystack
 The modern medical record is too large for any human to review exhaustively in a standard 15-minute consultation. When a patient presents with vague symptoms, the answer often lies in a historical correlation—perhaps a lab result from three years ago or a family history mentioned in a specialist note.
@@ -178,7 +178,7 @@ Zumm's AI doesn't experience fatigue or bias. It scans every single page of a pa
 
 ## Key Features & Benefits
 *   **Automated Correlation Detection**: Zumm links findings across years of records to surface emerging clinical patterns.
-*   **Differential Diagnosis Support**: The AI provides a \"second look\" by summarizing facts that support or contradict a primary diagnosis.
+*   **Differential Diagnosis Support**: The AI provides a \"second look\" by synthesizing facts that support or contradict a primary diagnosis.
 *   **Interactive Fact-Checking**: Clinicians can query the entire record to confirm if specific symptoms or lab changes occurred in the past.
 *   **Holistic Timeline View**: By viewing data chronologically, clinicians can see the exact trajectory of a patient's health, revealing shifts that would be invisible in siloed records.
 
@@ -188,7 +188,7 @@ A neurologist was treating a patient for recurring migraines. Despite multiple t
 In oncology, Zumm's ability to cross-reference multiple pathology and radiology reports ensured that a subtle change in tumor morphology was flagged immediately, allowing for a timely second-opinion consult that significantly altered the treatment plan.
 
 ## Conclusion
-Diagnostic excellence requires a comprehensive understanding of the patient's entire history. As medical data continues to grow, human review alone is no longer sufficient to guarantee safety. AI-powered document intelligence through Zumm provides the tireless, comprehensive oversight needed to prevent diagnostic errors and ensure that every patient receives an accurate and timely diagnosis.`
+Diagnostic excellence requires a comprehensive understanding of the patient's entire history. As medical data continues to grow, human review alone is no longer sufficient to guarantee safety. AI-powered cognitive intelligence through Zumm provides the tireless, comprehensive oversight needed to prevent diagnostic errors and ensure that every patient receives an accurate and timely diagnosis.`
   },
   {
     id: "reducing-healthcare-burden",
@@ -200,7 +200,7 @@ Diagnostic excellence requires a comprehensive understanding of the patient's en
     readTime: "9 min read",
     isNew: false,
     content: `## Introduction
-The healthcare industry is at a breaking point due to administrative overload. Clinicians and support staff are spending more time on paperwork than on patient care, leading to unprecedented levels of burnout. **Administrative burden** is not just an inefficiency; it is a threat to the quality of care. AI-driven document intelligence is now being deployed to automate the \"paperwork layer\" of medicine, restoring balance to the healthcare team.
+The healthcare industry is at a breaking point due to administrative overload. Clinicians and support staff are spending more time on paperwork than on patient care, leading to unprecedented levels of burnout. **Administrative burden** is not just an inefficiency; it is a threat to the quality of care. AI-driven cognitive intelligence is now being deployed to automate the \"paperwork layer\" of medicine, restoring balance to the healthcare team.
 
 ## The Problem: The Hidden Cost of Paperwork
 The administrative workload in healthcare has grown exponentially over the last two decades. From complex billing cycles and prior authorizations to exhaustive chart reviews for compliance, the amount of non-clinical work is staggering.
@@ -217,7 +217,7 @@ By treating paperwork as an automated task rather than a human labor cost, Zumm 
 
 ## Key Features & Benefits
 *   **AI-Powered Prior Authorization Support**: Automatically gather and structure all clinical evidence needed for insurance approvals.
-*   **Instant Patient Intake Summaries**: Transcribe and summarize incoming patient referrals and history forms instantly.
+*   **Instant Patient Intake Summaries**: Transcribe and synthesize incoming patient referrals and history forms instantly.
 *   **Automated Regulatory Auditing**: Zumm's structured audit trails make compliance reporting a seamless, automated process.
 *   **Enhanced Team Collaboration**: Shared, structured insights ensure that every member of the care team is literally "on the same page."
 
@@ -227,14 +227,14 @@ A medium-sized specialty clinic integrated Zumm into their patient intake workfl
 In a hospital's billing department, Zumm was used to cross-reference physician notes with medical codes. This automation reduced claim denials by 30% and significantly accelerated the revenue cycle by ensuring that all codes were supported by the clinical documentation.
 
 ## Conclusion
-Reducing the administrative burden in healthcare is not just about saving money; it's about saving the healthcare workforce. By deploying AI to handle the grueling technicalities of data extraction and summarization, Zumm is empowering clinicians to reclaim their time. The transition to AI-driven administrative efficiency is the key to creating a sustainable, high-performance healthcare system.`
+Reducing the administrative burden in healthcare is not just about saving money; it's about saving the healthcare workforce. By deploying AI to handle the grueling technicalities of data extraction and intelligence synthesis, Zumm is empowering clinicians to reclaim their time. The transition to AI-driven administrative efficiency is the key to creating a sustainable, high-performance healthcare system.`
   },
 
   // --- INSURANCE ---
   {
     id: "ai-accelerates-claims",
     title: "How AI Accelerates Claims Approval Without Compromising Accuracy",
-    desc: "Discover how automation and document intelligence are eliminating the backlog in insurance claim processing.",
+    desc: "Discover how automation and cognitive intelligence are eliminating the backlog in insurance claim processing.",
     date: "Mar 22, 2026",
     category: "Insurance",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
@@ -304,7 +304,7 @@ Furthermore, our chat-based interface allows customer service agents to answer c
 ## Real-world Use Cases
 A home insurance provider integrated Zumm's timeline feature into their policyholder portal. Customers could see exactly when their \"proof of loss\" was verified and when the adjuster's review was scheduled. This transparency reduced incoming \"status update\" calls by 50%, freeing up agents to handle more complex customer needs and significantly improving the net promoter score (NPS).
 
-In another case, an insurer used Zumm to automatically summarize complex claim incidents for their support teams. When a customer called in, the agent didn't need to read through the file for five minutes; they had a **three-sentence AI summary** and could begin the conversation with: \"I see exactly where we are with your water damage claim...\" This led to a much more empathetic and efficient service experience.
+In another case, an insurer used Zumm to automatically synthesize complex claim incidents for their support teams. When a customer called in, the agent didn't need to read through the file for five minutes; they had a **three-sentence AI summary** and could begin the conversation with: \"I see exactly where we are with your water damage claim...\" This led to a much more empathetic and efficient service experience.
 
 ## Conclusion
 Improving customer experience in insurance isn't about human vs. machine; it's about using machines to make the process more human. By automating the technical, data-heavy aspects of insurance claims processing, Zumm allows insurers to be more responsive, transparent, and empathetic. The result is a more loyal customer base and a brand that feels modern, capable, and trustworthy.`
@@ -312,7 +312,7 @@ Improving customer experience in insurance isn't about human vs. machine; it's a
   {
     id: "ai-vs-traditional-risk",
     title: "AI vs Traditional Risk Assessment: What’s Changing?",
-    desc: "A deep dive into how machine learning and document intelligence outperform static rules in modern risk evaluation.",
+    desc: "A deep dive into how machine learning and cognitive intelligence outperform static rules in modern risk evaluation.",
     date: "Mar 16, 2026",
     category: "Insurance",
     image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
@@ -346,7 +346,7 @@ An underwriting team for a commercial property insurer used Zumm to analyze hund
 In the fraud detection space, Zumm was used to analyze thousands of concurrent claims. The AI detected a subtle pattern where documents from seemingly unrelated accidents across three different states shared a single, obscure medical provider's digital footprint. This discovery led to the uncovering of a major cross-state fraud ring that had bypassed traditional static verification rules.
 
 ## Conclusion
-The shift from traditional to AI-driven risk assessment is a shift from \"guessing based on history\" to \"knowing based on data.\" By using Zumm to unlock the structured insights hidden within unstructured documents, insurers can price more accurately, detect fraud earlier, and ultimately create a more stable and profitable business model. The future of risk is intelligent, dynamic, and data-driven.`
+The shift from traditional to AI-driven risk assessment is a shift from \"guessing based on history\" to \"knowing based on data.\" By using Zumm to unlock the structured insights hidden within unstructured information, insurers can price more accurately, detect fraud earlier, and ultimately create a more stable and profitable business model. The future of risk is intelligent, dynamic, and data-driven.`
   },
   {
     id: "scaling-insurance-operations",
@@ -463,14 +463,14 @@ A commercial insurer used Zumm to analyze their entire portfolio of warehouse po
 In the specialized field of maritime insurance, Zumm was used to analyze decades of ship maintenance logs and captain's reports. The AI identified subtle language patterns that preceded mechanical failure, allowing the insurer to offer a specialized \"predictive maintenance\" policy that reduced downtime for their clients and improved the carrier's loss ratio.
 
 ## Conclusion
-The move from spreadsheet-based models to AI-driven risk engines is a shift toward a more nuanced, accurate, and profitable future. By unlocking the data within their documents, insurers can finally see the full picture of the risks they are carrying. Zumm provides the tools needed to turn document intelligence into competitive advantage, ensuring that risk analysis is as dynamic as the world it seeks to measure.`
+The move from spreadsheet-based models to AI-driven risk engines is a shift toward a more nuanced, accurate, and profitable future. By unlocking the data within their documents, insurers can finally see the full picture of the risks they are carrying. Zumm provides the tools needed to turn cognitive intelligence into competitive advantage, ensuring that risk analysis is as dynamic as the world it seeks to measure.`
   },
 
   // --- LEGAL ---
   {
     id: "ai-legal-research",
     title: "How AI is Streamlining Legal Research and Case Analysis",
-    desc: "Discover how document intelligence is reducing the time spent on case law review by up to 80%.",
+    desc: "Discover how cognitive intelligence is reducing the time spent on case law review by up to 80%.",
     date: "Mar 25, 2026",
     category: "Legal",
     image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80",
@@ -488,13 +488,13 @@ Challenges in traditional legal research include:
 *   **Cost Barriers**: The high cost of manual research can make high-quality legal defense or prosecution inaccessible for many clients.
 
 ## The Solution: Zumm's Semantic Legal Analysis
-Zumm moves beyond simple keywords by using **semantic search and document intelligence**. Our AI understands the \"legal intent\" behind a query, identifying relevant cases based on concepts, legal principles, and outcome patterns rather than just text matches.
+Zumm moves beyond simple keywords by using **semantic search and cognitive intelligence**. Our AI understands the \"legal intent\" behind a query, identifying relevant cases based on concepts, legal principles, and outcome patterns rather than just text matches.
 
-By acting as a tireless high-speed researcher, Zumm provides a \"first pass\" analysis of discovery files and case law, summarizing the most relevant findings and highlighting critical contradictions or supporting evidence.
+By acting as a tireless high-speed researcher, Zumm provides a \"first pass\" analysis of discovery files and case law, synthesizing the most relevant findings and highlighting critical contradictions or supporting evidence.
 
 ## Key Features & Benefits
 *   **Intelligent Case Discovery**: Locate relevant precedents based on the specific facts and legal \"theories of the case\" rather than just tags.
-*   **Discovery File Summarization**: Automatically summarize thousands of pages of discovery documents, highlighting key dates, actors, and conflicting testimony.
+*   **Discovery File Intelligence Synthesis**: Automatically synthesize thousands of pages of discovery documents, highlighting key dates, actors, and conflicting testimony.
 *   **Precedent Mapping**: Zumm identifies the relationships between different rulings, showing how a specific legal principle has evolved over time.
 *   **Citing & Attribution Support**: The AI provides exact page and paragraph citations for every insight, ensuring that all findings are verifiable and court-ready.
 
@@ -504,7 +504,7 @@ A mid-sized litigation firm used Zumm to review a massive discovery file consist
 In a criminal defense case, an attorney used Zumm to search for specific types of procedural errors in historical state court rulings. Zumm identified an obscure but relevant precedent from a decade ago that had been missed by traditional legal databases, leading to a successful motion to suppress evidence.
 
 ## Conclusion
-The goal of AI in legal research is not to replace the lawyer's judgment, but to provide the **high-fidelity data** needed to exercise that judgment more effectively. By automating the \"grunt work\" of document review and case discovery, Zumm empowers legal professionals to focus on strategy, advocacy, and client service. In an increasingly complex legal world, AI-driven document intelligence is the key to maintaining a competitive edge and delivering superior justice.`
+The goal of AI in legal research is not to replace the lawyer's judgment, but to provide the **high-fidelity data** needed to exercise that judgment more effectively. By automating the \"grunt work\" of document review and case discovery, Zumm empowers legal professionals to focus on strategy, advocacy, and client service. In an increasingly complex legal world, AI-driven cognitive intelligence is the key to maintaining a competitive edge and delivering superior justice.`
   },
   {
     id: "automating-contract-analysis",
@@ -582,12 +582,12 @@ A global financial services firm used Zumm to ensure their internal policies wer
 In the healthcare sector, Zumm was used to monitor patient data handling agreements for HIPAA compliance. The AI identified a specific set of vendor contracts that lacked the required \"Business Associate Agreement\" language, allowing the healthcare provider to secure the necessary amendments before any data breach could occur.
 
 ## Conclusion
-Legal compliance is not a \"one-and-done\" task; it is an ongoing commitment to data integrity. AI-driven document intelligence through Zumm turns compliance from a reactive burden into an automated, invisible strength. By deploying a tireless, high-precision auditor across your entire document landscape, you can ensure that your organization remains protected, reputable, and ready for whatever regulatory changes the future may bring.`
+Legal compliance is not a \"one-and-done\" task; it is an ongoing commitment to data integrity. AI-driven cognitive intelligence through Zumm turns compliance from a reactive burden into an automated, invisible strength. By deploying a tireless, high-precision auditor across your entire document landscape, you can ensure that your organization remains protected, reputable, and ready for whatever regulatory changes the future may bring.`
   },
   {
     id: "ip-management-ai",
     title: "AI in Intellectual Property Management: Protecting Innovation",
-    desc: "How document intelligence is helping legal teams monitor and defend IP portfolios with machine speed.",
+    desc: "How cognitive intelligence is helping legal teams monitor and defend IP portfolios with machine speed.",
     date: "Mar 13, 2026",
     category: "Legal",
     image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=800&q=80",
@@ -611,7 +611,7 @@ Because our AI understands **conceptual similarity**, it can flag potential issu
 
 ## Key Features & Benefits
 *   **Concept-Based Monitoring**: Detect potential infringements based on clinical or technical similarity rather than just specific words.
-*   **Automated Filing Summarization**: Quickly review and summarize new filings in your industry to stay ahead of competitor innovation.
+*   **Automated Filing Intelligence Synthesis**: Quickly review and synthesize new filings in your industry to stay ahead of competitor innovation.
 *   **Cross-Jurisdictional Intelligence**: Zumm unifies data from global IP registries, providing a single view of your innovation portfolio's safety.
 *   **Evidence Gathering Automation**: If an infringement is detected, Zumm automatically identifies and structures the supporting documentation needed for a cease-and-desist or litigation.
 
@@ -621,7 +621,7 @@ A consumer electronics company used Zumm to monitor global patent filings. The A
 In the fashion industry, a luxury brand used Zumm to scan thousands of e-commerce listings for potential trademark infringements. The AI identified hundreds of "clever" imitations that used misspellings of the brand name, which had bypassed the company's previous automated filters.
 
 ## Conclusion
-Protecting innovation requires more than just filing papers; it requires constant, intelligent vigilance. AI-driven document intelligence through Zumm provides the scalable oversight needed to defend your intellectual property in a fast-moving global market. By turning IP management into an automated, data-driven process, legal teams can ensure their company's most valuable assets remain secure and undisputed.`
+Protecting innovation requires more than just filing papers; it requires constant, intelligent vigilance. AI-driven cognitive intelligence through Zumm provides the scalable oversight needed to defend your intellectual property in a fast-moving global market. By turning IP management into an automated, data-driven process, legal teams can ensure their company's most valuable assets remain secure and undisputed.`
   },
   {
     id: "legal-workflow-automation-future",
@@ -650,7 +650,7 @@ By creating a **unified data stream**, Zumm eliminates the need for repetitive d
 
 ## Key Features & Benefits
 *   **End-to-End Data Continuity**: Data extracted during intake flows perfectly into discovery, litigation summaries, and final closing documents.
-*   **Automated Matter Summarization**: Every stakeholder, from the lead counsel to the client, can get an instant, AI-generated status report on any matter.
+*   **Automated Matter Intelligence Synthesis**: Every stakeholder, from the lead counsel to the client, can get an instant, AI-generated status report on any matter.
 *   **Predictive Analytics**: Use historical matter data to forecast timelines and budgets for new cases with unprecedented accuracy.
 *   **Intelligent Resource Allocation**: Zumm identifies which parts of a workflow can be automated and which require senior legal expertise, maximizing firm profitability.
 
@@ -665,7 +665,7 @@ The future of law is not just about smarter lawyers; it's about smarter workflow
   {
     id: "litigation-support-ai",
     title: "AI-Powered Litigation Support: Winning with Data",
-    desc: "How litigators are using document intelligence to build stronger cases and predict court outcomes.",
+    desc: "How litigators are using cognitive intelligence to build stronger cases and predict court outcomes.",
     date: "Mar 05, 2026",
     category: "Legal",
     image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80",
@@ -689,7 +689,7 @@ By providing a **"Case Strength Analysis,"** Zumm allows litigators to simulate 
 
 ## Key Features & Benefits
 *   **Evidentiary Gap Analysis**: Automatically identify areas where your documentation is weak or where a competitor's claim is unsupported by their own records.
-*   **Automated Deposition Preparation**: Zumm summarizes a witness's entire digital footprint across the discovery file, highlighting inconsistencies for the attorney to explore.
+*   **Automated Deposition Preparation**: Zumm synthesizes a witness's entire digital footprint across the discovery file, highlighting inconsistencies for the attorney to explore.
 *   **Visual Narrative Building**: Automatically generate interactive case timelines that can be used to explain complex fact patterns to a judge or jury.
 *   **Predictive Fact-Checking**: Use AI to simulate "counter-arguments" based on the available discovery, allowing your team to be prepared for any challenge.
 

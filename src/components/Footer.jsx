@@ -23,7 +23,7 @@ export default function Footer() {
               <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Zumm</span>
             </Link>
             <p className="text-slate-600 dark:text-gray-400 leading-relaxed max-w-xs mb-6">
-              The AI document intelligence platform for modern enterprises. Process complex information reliably and securely.
+              The cognitive intelligence platform for modern enterprises. Process complex information reliably and securely.
             </p>
           </div>
 
