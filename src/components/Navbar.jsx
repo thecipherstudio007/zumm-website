@@ -28,11 +28,11 @@ export default function Navbar() {
   ];
 
   const subLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/how-it-works', label: 'How it works' },
-    { to: '/architecture', label: 'Architecture' },
-    { to: '/ai-cost-calculator', label: 'AI Cost Calculator' },
-    { to: '/pricing', label: 'Pricing' },
+    { to: `/${industry}`, label: 'Home' },
+    { to: `/${industry}/how-it-works`, label: 'How it works' },
+    { to: `/${industry}/architecture`, label: 'Architecture' },
+    { to: `/${industry}/ai-cost-calculator`, label: 'AI Cost Calculator' },
+    { to: `/${industry}/pricing`, label: 'Pricing' },
   ];
 
   return (
@@ -46,7 +46,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <Link to={`/${industry}`} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--primary-light)] to-[var(--primary-dark)] flex items-center justify-center font-bold text-slate-900 dark:text-white transition-colors duration-300">
               Z
             </div>

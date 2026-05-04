@@ -36,32 +36,32 @@ const solutionData = {
 };
 
 export default function Solution() {
-  const { industryId } = useParams();
+  const { industry } = useParams();
   const { setIndustry } = useIndustry();
   
   // Update global industry state to match route
   useEffect(() => {
-    if (solutionData[industryId]) {
-      setIndustry(industryId);
+    if (solutionData[industry]) {
+      setIndustry(industry);
     }
-  }, [industryId, setIndustry]);
+  }, [industry, setIndustry]);
 
-  const data = solutionData[industryId];
+  const data = solutionData[industry];
 
-  // If invalid industry param, redirect home
-  if (!data) return <Navigate to="/" replace />;
+  // If invalid industry param, redirect to its home
+  if (!data) return <Navigate to={`/${industry}`} replace />;
 
   const Icon = data.icon;
 
   return (
     <div className="pt-32 pb-20 bg-white dark:bg-gray-950 min-h-screen transition-colors duration-500 overflow-x-hidden relative">
       <SEO 
-        title={`${industryId.charAt(0).toUpperCase() + industryId.slice(1)} Industry Solutions`} 
-        description={`Scale your ${industryId} workflows with Zumm AI specialized cognitive intelligence.`}
+        title={`${industry.charAt(0).toUpperCase() + industry.slice(1)} Industry Solutions`} 
+        description={`Scale your ${industry} workflows with Zumm AI specialized cognitive intelligence.`}
       />
       <div className="absolute inset-x-0 top-0 h-[500px] mesh-gradient-light dark:hidden opacity-30"></div>
       
-      {industryId === 'healthcare' ? (
+      {industry === 'healthcare' ? (
         <div className="relative z-10">
           <HealthcareSolution />
         </div>
@@ -71,10 +71,10 @@ export default function Solution() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              key={industryId} // Force re-animation on route change
+              key={industry} // Force re-animation on route change
             >
               <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] font-semibold text-sm mb-6 border border-[var(--primary)]/20`}>
-                <Icon className="w-4 h-4" /> {industryId.charAt(0).toUpperCase() + industryId.slice(1)} Solutions
+                <Icon className="w-4 h-4" /> {industry.charAt(0).toUpperCase() + industry.slice(1)} Solutions
               </div>
               <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-[1.15] mb-6">
                 {data?.title}
@@ -92,7 +92,7 @@ export default function Solution() {
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            key={`cards-${industryId}`}
+            key={`cards-${industry}`}
             className="grid sm:grid-cols-2 gap-6"
           >
             {data?.content?.map((item, idx) => (
