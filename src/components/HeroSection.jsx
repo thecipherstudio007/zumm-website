@@ -8,7 +8,6 @@ import { FileText, ArrowRight, Database, LayoutTemplate, BrainCircuit, ShieldChe
 export default function HeroSection() {
   const { industry } = useIndustry();
 
-  // Dynamic global enterprise messaging per user requirement
   const getSubheadline = () => {
     if (industry === 'insurance') {
       return "Zumm automates claim reviews, extracts policy details, traces lifecycles, and delivers real-time risk intelligence — helping carriers save hours of manual processing.";
@@ -19,39 +18,16 @@ export default function HeroSection() {
   };
 
   const getHeadline = () => {
-    if (industry === 'insurance') {
-      return (
-        <motion.h1
-          variants={fadeIn}
-          className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-slate-900 dark:text-white font-display"
-        >
-          Transform Complex Claims into <br />
-          <span className="text-gradient from-[var(--primary-light)] to-[var(--primary-dark)]">
-            Clear Decisions
-          </span>
-        </motion.h1>
-      );
-    } else if (industry === 'legal') {
-      return (
-        <motion.h1
-          variants={fadeIn}
-          className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-slate-900 dark:text-white font-display"
-        >
-          Understand Legal Cases with <br />
-          <span className="text-gradient from-[var(--primary-light)] to-[var(--primary-dark)]">
-            Complete Clarity
-          </span>
-        </motion.h1>
-      );
-    }
+    const industryName = industry === 'legal' ? 'Legal' : industry === 'insurance' ? 'Insurance' : 'Healthcare';
+    
     return (
       <motion.h1
         variants={fadeIn}
-        className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-slate-900 dark:text-white font-display"
+        className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-slate-900 dark:text-white font-display"
       >
-        From Unstructured Information to <br />
-        <span className="text-gradient from-[var(--primary-light)] to-[var(--primary-dark)]">
-          Reliable Intelligence
+        The AI operational layer for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-light)] to-[var(--primary)]">{industryName}</span> teams.
+        <span className="block mt-4 text-2xl md:text-3xl lg:text-4xl text-slate-600 dark:text-gray-300 font-bold leading-[1.3] tracking-normal">
+          Convert messy records into <span className="text-slate-900 dark:text-white">structured workflows, codes, timelines, insights, references, and next actions.</span>
         </span>
       </motion.h1>
     );

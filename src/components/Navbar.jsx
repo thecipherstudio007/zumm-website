@@ -30,6 +30,7 @@ export default function Navbar() {
   const subLinks = [
     { to: '/', label: 'Home' },
     { to: '/how-it-works', label: 'How it works' },
+    { to: '/architecture', label: 'Architecture' },
     { to: '/ai-cost-calculator', label: 'AI Cost Calculator' },
     { to: '/pricing', label: 'Pricing' },
   ];

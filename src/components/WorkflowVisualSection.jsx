@@ -37,9 +37,9 @@ export default function WorkflowVisualSection() {
   };
 
   const descriptions = {
-    healthcare: "Understand workflows through structured, connected events. Zumm automatically constructs a node-based event map spanning years of history.",
-    insurance: "Track the full lifecycle of a claim in chronological order. Zumm automatically constructs a node-based event map from unstructured claim docs.",
-    legal: "Track the entire case progression in one view. Zumm automatically extracts and maps chronological events from messy legal files."
+    healthcare: "Stop manually copying dates from 50 different patient records. Zumm automatically constructs a chronological event map spanning years of history, saving you days of manual reconstruction.",
+    insurance: "Stop piecing together timelines from scattered claim files. Zumm instantly builds a chronological lifecycle of the claim, eliminating hours of manual date cross-referencing.",
+    legal: "Stop manually building case chronologies in Excel. Zumm automatically extracts and maps events from messy discovery files to build a perfect chronological timeline instantly."
   };
 
   const nodes = nodesData[industry] || nodesData.healthcare;

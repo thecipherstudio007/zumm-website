@@ -12,11 +12,11 @@ export default function BeforeAfter() {
   const [activeTab, setActiveTab] = useState('structured');
 
   const beforePoints = [
-    { icon: FileText, text: "Unstructured, inconsistent document data" },
-    { icon: AlertCircle, text: "Manual extraction with frequent errors" },
-    { icon: Blocks, text: "Data scattered across multiple files and formats" },
-    { icon: FileMinus, text: "No standardized or schema-based output" },
-    { icon: History, text: "No reliable timeline or insights" }
+    { icon: FileText, text: "Manually cross-referencing messy PDFs on dual monitors" },
+    { icon: AlertCircle, text: "Hours of manual data entry with frequent human errors" },
+    { icon: Blocks, text: "Copying and pasting data into Excel spreadsheets" },
+    { icon: FileMinus, text: "Struggling to find critical info across 500+ page files" },
+    { icon: History, text: "Manually building chronologies and timelines" }
   ];
 
   const getDynamicPoint = () => {
@@ -26,14 +26,14 @@ export default function BeforeAfter() {
   };
 
   const afterPoints = [
-    { icon: CheckCircle2, text: "Up to 99%+ accurate structured data extraction" },
-    { icon: Database, text: "Schema-based outputs (consistent, validated data)" },
-    { icon: Clock, text: "Chronological timeline view across all documents" },
-    { icon: Workflow, text: "Workflow view to automate and manage processes" },
-    { icon: MessageSquare, text: "AI assistant chatbot to query and find insights instantly" },
+    { icon: CheckCircle2, text: "Automated extraction with 99%+ accuracy" },
+    { icon: Database, text: "Structured schema-based outputs (no manual entry)" },
+    { icon: Clock, text: "Instant chronological timeline view across all records" },
+    { icon: Workflow, text: "Automated workflow routing and flag detection" },
+    { icon: MessageSquare, text: "Query the entire file instantly instead of Ctrl+F" },
     { icon: Activity, text: getDynamicPoint() },
-    { icon: Search, text: "Unified, searchable data across all sources" },
-    { icon: LayoutTemplate, text: "Outputs ready for dashboards, APIs, and reports" }
+    { icon: Search, text: "Unified, searchable data ready in seconds" },
+    { icon: LayoutTemplate, text: "Production-ready outputs for dashboards and APIs" }
   ];
 
   const tabs = [
@@ -288,7 +288,7 @@ export default function BeforeAfter() {
               The Zumm Advantage
             </h2>
             <p className="text-slate-600 dark:text-gray-400 max-w-2xl mx-auto text-lg mb-12">
-              Don't just extract data — gain a complete operating system for structured intelligence. Ensure your workflows output precision and reliability.
+              Stop wasting hours manually reviewing messy records. Zumm transforms slow, human-prone processes into instant, structured intelligence.
             </p>
           </div>
 
@@ -303,11 +303,16 @@ export default function BeforeAfter() {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-red-400 opacity-[0.03] dark:opacity-[0.05] blur-[100px] rounded-full pointer-events-none"></div>
             
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-full bg-red-50 dark:bg-red-500/10 flex items-center justify-center border border-red-100 dark:border-red-500/20">
-                <XCircle className="w-6 h-6 text-red-500" />
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-red-50 dark:bg-red-500/10 flex items-center justify-center border border-red-100 dark:border-red-500/20">
+                  <XCircle className="w-6 h-6 text-red-500" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Before Zumm</h3>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Before Zumm</h3>
+              <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 px-3 py-1.5 rounded-lg border border-red-100 dark:border-red-500/20">
+                <Clock className="w-3.5 h-3.5" /> 4+ HOURS PER FILE
+              </div>
             </div>
 
             <ul className="space-y-6 mb-8">
@@ -362,7 +367,7 @@ export default function BeforeAfter() {
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white">With Zumm</h3>
               </div>
               <div className="inline-flex max-w-fit items-center gap-2 text-[10px] sm:text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 px-3 py-1.5 rounded-lg border border-blue-100 dark:border-blue-500/20">
-                <Sparkles className="w-3.5 h-3.5" /> INTERACTIVE PLATFORM
+                <Zap className="w-3.5 h-3.5" /> UNDER 30 SECONDS
               </div>
             </div>
 

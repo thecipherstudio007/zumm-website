@@ -80,7 +80,7 @@ export default function Solution() {
                 {data?.title}
               </h1>
               <p className="text-xl text-slate-600 dark:text-gray-400 mb-10 leading-relaxed max-w-lg">
-                Empower your professionals with domain-specific AI that understands the nuances of your industry's complex documentation.
+                Empower your professionals with domain-specific AI designed to resolve the nuances of your industry's complex operational bottlenecks.
               </p>
               
               <DemoButton className="px-8 py-4 rounded-xl font-bold bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-white transition-all text-lg flex items-center gap-2">

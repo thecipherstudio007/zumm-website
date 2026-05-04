@@ -85,8 +85,8 @@ const comparisonData = [
       { name: 'Provider Visit Notes', basic: false, professional: true, enterprise: true },
       { name: 'Lab Result Tracking', basic: false, professional: true, enterprise: true },
       { name: 'Risk Factors & Social Determinants', basic: false, professional: true, enterprise: true },
-      { name: 'Neural Document Search', basic: true, professional: true, enterprise: true },
-      { name: 'AI Document Assistant (Chat)', basic: false, professional: true, enterprise: true },
+      { name: 'Cross-Record Timeline Search', basic: true, professional: true, enterprise: true },
+      { name: 'AI Operations Assistant', basic: false, professional: true, enterprise: true },
     ]
   },
   {
@@ -397,7 +397,7 @@ export default function Pricing() {
             {[
               {
                 q: 'What counts as a "page"?',
-                a: 'A page is one standard document page run through our AI pipeline. We process every element — text, tables, codes, and signatures. Once your free pages are consumed, you will be charged per document processing. Multi-page documents are billed per page.'
+                a: 'A page is one standard record page run through our AI pipeline. We process every element — text, tables, codes, and signatures. Once your free pages are consumed, you will be charged per record processing. Multi-page records are billed per page.'
               },
               {
                 q: 'How do seat counts work?',
@@ -413,7 +413,7 @@ export default function Pricing() {
               },
               {
                 q: 'What happens after my free pages are used?',
-                a: 'You can purchase additional page packs from your dashboard, or upgrade to a higher tier. All processed documents and extracted data remain accessible at all times.'
+                a: 'You can purchase additional page packs from your dashboard, or upgrade to a higher tier. All processed records and extracted data remain accessible at all times.'
               },
             ].map((faq, idx) => (
               <FAQItem key={idx} question={faq.q} answer={faq.a} />

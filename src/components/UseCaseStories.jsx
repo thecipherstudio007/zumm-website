@@ -22,8 +22,8 @@ export default function UseCaseStories() {
       role: "Paralegal",
       icon: FileSearch,
       bg: "bg-gradient-to-br from-emerald-500/10 to-transparent",
-      quote: "Analyzing a 400-page deposition used to take me a full day. Zumm generates an executive brief and pulls all key citations in minutes.",
-      outcome: "Eliminated weekend document review work."
+      quote: "Analyzing a 400-page deposition used to take me a full day. Zumm generates a complete operational timeline and pulls all actionable citations in minutes.",
+      outcome: "Automated operational workflows and eliminated manual timeline construction."
     }
   ];
 

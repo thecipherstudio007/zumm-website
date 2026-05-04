@@ -8,10 +8,10 @@ export default function SEO({
   ogType = 'website', 
   ogImage = 'https://zumm.ai/og-image.jpg' 
 }) {
-  const siteTitle = 'Zumm - Document Intelligence';
+  const siteTitle = 'Zumm - AI Operational Intelligence';
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
-  const defaultDescription = 'Zumm is the AI document intelligence platform for modern enterprises. Process complex information reliably and securely.';
-  const footerDescription = 'Extract insights from Healthcare, Insurance, and Legal documents with Zumm AI.';
+  const defaultDescription = 'The AI operational layer that converts messy records into structured workflows, codes, and timelines.';
+  const footerDescription = 'Extract actionable operational insights from Healthcare, Insurance, and Legal records with Zumm AI.';
 
   return (
     <Helmet>

@@ -131,17 +131,17 @@ export default function FeaturesGrid() {
   const codeMappingContent = {
     healthcare: {
       title: "Medical Code Mapping",
-      desc: "Free-text clinical language is automatically normalized to ICD-10, SNOMED CT, RxNorm, and CPT codes. No manual lookups.",
+      desc: "Stop manual lookups. Free-text clinical language is automatically normalized to ICD-10, SNOMED CT, RxNorm, and CPT codes.",
       tags: ['ICD-10', 'SNOMED CT', 'RxNorm', 'CPT', 'LOINC']
     },
     insurance: {
       title: "Policy Clause Mapping",
-      desc: "Automatically map loss descriptions directly to ISO policy forms, coverage limits, and exclusion clauses.",
+      desc: "Eliminate manual policy reading. Automatically map loss descriptions directly to ISO policy forms, coverage limits, and exclusion clauses.",
       tags: ['ISO Forms', 'Coverage Limits', 'Exclusions', 'Riders', 'Endorsements']
     },
     legal: {
       title: "Statutory & Case Mapping",
-      desc: "Connect unstructured facts directly to statutory codes, liability frameworks, and binding case precedents.",
+      desc: "Stop manual legal research on active files. Connect unstructured facts directly to statutory codes, liability frameworks, and binding case precedents.",
       tags: ['USC Codes', 'CFR Citations', 'Liability Rules', 'Local Rules', 'Precedents']
     }
   };
@@ -189,7 +189,7 @@ export default function FeaturesGrid() {
             initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.08 }}
             className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-5 font-display"
           >
-            From raw documents to<br className="hidden sm:block" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-indigo-500">production-ready data</span>
+            From messy records to<br className="hidden sm:block" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-indigo-500">production-ready operations</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.16 }}
@@ -211,8 +211,8 @@ export default function FeaturesGrid() {
             <div className="w-11 h-11 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-500 flex items-center justify-center mb-4">
               <Code2 className="w-5 h-5" />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Structured Data Extraction</h3>
-            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Any PDF, scan, or image becomes a clean, typed JSON object — aligned to your exact schema. No prompt engineering needed.</p>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Automated Operational Workflows</h3>
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Eliminates hours of manual data entry. Any record, scan, or image becomes a clean, typed JSON object — aligned to your exact schema to power automated decision-making.</p>
             <JsonMockup industry={industry} />
           </motion.div>
 
@@ -226,7 +226,7 @@ export default function FeaturesGrid() {
               <Clock className="w-5 h-5" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Chronological Timeline Generation</h3>
-            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Zumm untangles multi-document histories and builds an ordered event timeline — {tlDesc[industry] || tlDesc.healthcare} — ready for review.</p>
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Replaces manual timeline construction in Excel. Zumm untangles multi-document histories and builds an ordered event timeline — {tlDesc[industry] || tlDesc.healthcare} — ready for instant review.</p>
             <TimelineMockup industry={industry} />
           </motion.div>
 
@@ -278,8 +278,8 @@ export default function FeaturesGrid() {
             <div className="w-11 h-11 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-500 flex items-center justify-center mb-4">
               <Combine className="w-5 h-5" />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Multi-Document Context</h3>
-            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Cross-reference facts, entities, and timelines across dozens of files simultaneously. Zumm reconciles conflicts and surfaces what matters.</p>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Cross-Record Contextual Engine</h3>
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Eliminate the need to manually cross-reference PDFs on dual monitors. Zumm analyzes dozens of files simultaneously, reconciling conflicts and surfacing what matters for operations.</p>
             <div className="mt-6 flex flex-col gap-2">
               <AnimatePresence mode="popLayout">
                 {files.map(([name, size], i) => (

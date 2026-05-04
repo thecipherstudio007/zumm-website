@@ -60,9 +60,9 @@ export default function DocumentChatSection() {
   const queries = queriesData[industry] || queriesData.healthcare;
 
   const descriptions = {
-    healthcare: "Use natural language to instantly find insights from complex medical records. Stop reading hundreds of pages and simply ask the Zumm Engine to analyze, find risks, or list medications.",
-    insurance: "Use natural language to instantly find insights from complex claim files. Stop manually reviewing policy coverage and simply ask the Zumm Engine to check amounts, risks, or missing documents.",
-    legal: "Use natural language to instantly find insights from complex case files. Stop reading hundreds of pages of discovery and simply ask the Zumm Engine to extract key insights or find clauses."
+    healthcare: "Use natural language to instantly resolve operational bottlenecks. Stop reading hundreds of pages of patient history and simply ask the Zumm Engine to analyze timelines, find risks, or list actionable workflows.",
+    insurance: "Use natural language to instantly resolve operational bottlenecks. Stop manually reviewing policy coverage and simply ask the Zumm Engine to check amounts, risks, or construct claim timelines.",
+    legal: "Use natural language to instantly resolve operational bottlenecks. Stop reading hundreds of pages of discovery and simply ask the Zumm Engine to extract actionable insights or find clauses."
   };
 
   return (
@@ -152,10 +152,10 @@ export default function DocumentChatSection() {
         <div className="space-y-6 lg:pl-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 text-sm font-semibold">
              <MessageSquare className="w-4 h-4" />
-             Conversational AI
+             Interactive Problem Solving
           </div>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight text-slate-900 dark:text-white font-display">
-            Ask Anything About the {industry === 'healthcare' ? 'Intelligence Profile' : industry === 'insurance' ? 'Claim Data' : 'Case Intelligence'}
+            Solve complex operational problems instantly
           </h2>
           <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed">
             {descriptions[industry] || descriptions.healthcare}
