@@ -4,10 +4,13 @@ import SEO from '../components/SEO';
 
 export default function About() {
   const team = [
-    { name: "Sarah Jenkins", role: "CEO & Co-Founder", img: "https://i.pravatar.cc/150?img=47" },
-    { name: "David Chen", role: "CTO & AI Lead", img: "https://i.pravatar.cc/150?img=11" },
-    { name: "Elena Rodriguez", role: "Head of Product", img: "https://i.pravatar.cc/150?img=5" },
-    { name: "Marcus Johnson", role: "VP of Engineering", img: "https://i.pravatar.cc/150?img=60" },
+    { name: "Rahul Deshwal", role: "Head of Operation", img: "/rahul.jpg" },
+    { name: "Parminder Singh", role: "Head of Technology", img: "/parminder.jpg" },
+    { name: "Divesh Khatri", role: "AI Product Owner", img: "/divesh.png" },
+    { name: "Nikita Thakur", role: "Senior Developer", img: "/nikita.jpg" },
+    { name: "Lokesh Panwar", role: "Senior AI Developer", img: "/lokesh2.jpg" },
+    { name: "Swarit Kashyap", role: "AI Developer", img: "/swarit.jpg" },
+    { name: "Shubham Parashar", role: "System Architect", img: "/shubham.jpg" },
   ];
 
   return (
@@ -73,7 +76,12 @@ export default function About() {
               className="text-center group"
             >
               <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-4 border-white dark:border-gray-800 group-hover:scale-105 transition-transform duration-300 shadow-xl">
-                <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                <img 
+                  src={member.img} 
+                  alt={member.name} 
+                  className="w-full h-full object-cover" 
+                  style={{ objectPosition: member.position || 'top' }}
+                />
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white">{member.name}</h3>
               <p className="text-sm text-[var(--primary)] font-medium">{member.role}</p>
