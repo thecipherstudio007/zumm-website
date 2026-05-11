@@ -76,7 +76,7 @@ export default function AICostCalculator() {
         // Dynamically import PDF module + explicit worker from CDN escaping brutal Vite build path collisions
         // We use unpkg version-binding securely targeting the exactly matched package standard bindings
         const pdfjsLib = await import('pdfjs-dist/build/pdf.mjs');
-        pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
+        pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
 
         const arrayBuffer = await file.arrayBuffer();
         const pdfDocument = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;

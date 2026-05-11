@@ -27,21 +27,21 @@ export default function Integrations() {
   -H "Content-Type: multipart/form-data" \\
   -F "file=@insurance_claim.pdf" \\
   -F "modules=summary,timeline,risk_factors" \\
-  -F "webhook_url=https://your-guidewire-instance.internal/webhook"`;
+  -F "webhook_url=https://your-guidewire-instance.example.com/webhook"`;
     } else if (industry === 'legal') {
       return `curl -X POST https://api.zumm.ai/v1/extract \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: multipart/form-data" \\
   -F "file=@legal_contract.pdf" \\
   -F "modules=summary,obligations,entities" \\
-  -F "webhook_url=https://your-clio-account.internal/webhook"`;
+  -F "webhook_url=https://your-clio-account.example.com/webhook"`;
     }
     return `curl -X POST https://api.zumm.ai/v1/extract \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: multipart/form-data" \\
   -F "file=@patient_record.pdf" \\
   -F "modules=summary,timeline,icd10" \\
-  -F "webhook_url=https://your-epic-integration.internal/webhook"`;
+  -F "webhook_url=https://your-epic-integration.example.com/webhook"`;
   };
 
   return (

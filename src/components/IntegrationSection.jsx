@@ -46,7 +46,7 @@ const getSnippets = (industry) => {
     webhook: {
       label: 'Webhooks',
       lang: 'json',
-      code: `// POST https://your-app.com/zumm-webhook\n{\n  "event": "extraction.completed",\n  "document_id": "doc_abc123",\n  "status": "success",\n  "payload": {\n${curr.webhookPayload},\n    "processing_ms": 1840\n  }\n}`,
+      code: `// POST https://your-app.example.com/zumm-webhook\n{\n  "event": "extraction.completed",\n  "document_id": "doc_abc123",\n  "status": "success",\n  "payload": {\n${curr.webhookPayload},\n    "processing_ms": 1840\n  }\n}`,
       highlights: ['extraction.completed', 'success', '0.991']
     }
   };

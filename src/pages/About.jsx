@@ -4,7 +4,7 @@ import SEO from '../components/SEO';
 
 export default function About() {
   const team = [
-    { name: "Rahul Deshwal", role: "Head of Operation", img: "/rahul.jpg" },
+    { name: "Rahul Deshwal", role: "Head of Operations", img: "/rahul.jpg" },
     { name: "Parminder Singh", role: "Head of Technology", img: "/parminder.jpg" },
     { name: "Divesh Khatri", role: "AI Product Owner", img: "/divesh.png" },
     { name: "Nikita Thakur", role: "Senior Developer", img: "/nikita.jpg" },
@@ -15,19 +15,19 @@ export default function About() {
 
   return (
     <div className="pt-32 pb-24 bg-white dark:bg-gray-950 min-h-screen transition-colors duration-500 relative overflow-hidden">
-      <SEO 
-        title="About Zumm - The Future of Cognitive Intelligence" 
+      <SEO
+        title="About Zumm - The Future of Cognitive Intelligence"
         description="Learn about the team and technology behind Zumm. We are building the world's most reliable AI for complex information synthesis."
       />
       <div className="max-w-4xl mx-auto px-6 md:px-12 text-center mb-24">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight leading-tight mb-6"
         >
-          Building the Future of <br/><span className="text-[var(--primary)]">Cognitive Intelligence</span>
+          Building the Future of <br /><span className="text-[var(--primary)]">Cognitive Intelligence</span>
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -38,9 +38,9 @@ export default function About() {
       </div>
 
       <div className="bg-slate-50 glow-top-primary py-24 border-t border-slate-200/60 dark:border-white/10">
-      {/* Safe Background Tint Layer */}
-      <div className="absolute inset-0 bg-[var(--primary)] opacity-[0.03] dark:hidden pointer-events-none"></div>
-      <div className="absolute inset-0 hidden dark:block bg-gray-900/30 pointer-events-none"></div>
+        {/* Safe Background Tint Layer */}
+        <div className="absolute inset-0 bg-[var(--primary)] opacity-[0.03] dark:hidden pointer-events-none"></div>
+        <div className="absolute inset-0 hidden dark:block bg-gray-900/30 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-16">
             <div>
@@ -64,10 +64,10 @@ export default function About() {
           <h2 className="text-4xl font-bold text-slate-900 dark:text-white font-display">Meet the Team</h2>
           <p className="text-slate-600 dark:text-gray-400 mt-4">The minds behind the Zumm intelligence engine.</p>
         </div>
-        
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {team.map((member, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -76,10 +76,10 @@ export default function About() {
               className="text-center group"
             >
               <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-4 border-white dark:border-gray-800 group-hover:scale-105 transition-transform duration-300 shadow-xl">
-                <img 
-                  src={member.img} 
-                  alt={member.name} 
-                  className="w-full h-full object-cover" 
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
                   style={{ objectPosition: member.position || 'top' }}
                 />
               </div>
